@@ -16,16 +16,16 @@ Este repositório é utilizado para commits do Projeto Final (Sprints 05 e 06) u
 
 ![Progresso](https://progress-bar.dev/10/?title=Progresso)
 
-- [X] ** Dia 01 **
-- [ ] ** Dia 02 **
-- [ ] ** Dia 03 **
-- [ ] ** Dia 04 **
-- [ ] ** Dia 05 **
-- [ ] ** Dia 06 **
-- [ ] ** Dia 07 **
-- [ ] ** Dia 08 **
-- [ ] ** Dia 09 **
-- [ ] ** Dia 10 **
+- [X] **Dia 01**
+- [ ] **Dia 02**
+- [ ] **Dia 03**
+- [ ] **Dia 04**
+- [ ] **Dia 05**
+- [ ] **Dia 06**
+- [ ] **Dia 07**
+- [ ] **Dia 08**
+- [ ] **Dia 09**
+- [ ] **Dia 10**
 
   
 # Tecnologias utilizadas

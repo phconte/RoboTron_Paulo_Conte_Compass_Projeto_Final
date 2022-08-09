@@ -14,11 +14,11 @@ Este repositório é utilizado para commits do Projeto Final (Sprints 05 e 06) u
 
 # Progresso diário
 
-![Progresso](https://progress-bar.dev/10/?title=Progresso)
+![Progresso](https://progress-bar.dev/30/?title=Progresso)
 
 - [X] **Dia 01**
-- [ ] **Dia 02**
-- [ ] **Dia 03**
+- [X] **Dia 02**
+- [X] **Dia 03**
 - [ ] **Dia 04**
 - [ ] **Dia 05**
 - [ ] **Dia 06**

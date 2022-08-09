@@ -41,6 +41,4 @@ git clone https://github.com/phconte/RoboTron_Paulo_Conte_Compass_Projeto_Final.
 
 # Autor
 
-Paulo Henrique Conte
-
-https://www.linkedin.com/in/paulohconte
+[Paulo Henrique Conte](https://www.linkedin.com/in/paulohconte)

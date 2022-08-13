@@ -14,7 +14,7 @@ Este repositório é utilizado para commits do Projeto Final (Sprints 05 e 06) u
 
 # Progresso diário
 
-![Progresso](https://progress-bar.dev/70/?title=Progresso)
+![Progresso](https://progress-bar.dev/80/?title=Progresso)
 
 - [X] **Dia 01**
 - [X] **Dia 02**
@@ -23,7 +23,7 @@ Este repositório é utilizado para commits do Projeto Final (Sprints 05 e 06) u
 - [X] **Dia 05**
 - [X] **Dia 06**
 - [X] **Dia 07**
-- [ ] **Dia 08**
+- [X] **Dia 08**
 - [ ] **Dia 09**
 - [ ] **Dia 10**
 

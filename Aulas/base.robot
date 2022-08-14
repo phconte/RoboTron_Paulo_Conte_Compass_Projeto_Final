@@ -7,7 +7,9 @@ Documentation       Arquivo simples para requisições HTTP em APIs REST
 Library             RequestsLibrary
 Resource            ./usuarios_keywords.robot
 Resource            ./login_keywords.robot
-Resource            ./produtos_keywords.robot     
+Resource            ./produtos_keywords.robot
+Resource            ./common.robot
+     
 #Resource            ./carrinhos_keywords.robot                          
 
 # Sessão para setagem de variáveis
@@ -52,26 +54,29 @@ Cenário: POST Realizar Login 200
     POST Endpoint /login 
     Validar Status Code "200"
 
-Cenário: POST Criar Produto 200
+Cenário: POST Criar Produto 201
     [tags]    POSTPRODUTO
     Criar Sessao
+    Fazer Login e Armazenar Token
     POST Endpoint /produtos
     Validar Status Code "201"
-    
+
+Cenário: DELETE Excluir Produto 200
+    [tags]    DELETEPRODUTO
+    Criar Sessao
+    Fazer Login e Armazenar Token
+    Criar um Produto e Armazenar ID
+    DELETE Endpoint /produtos
+    Validar Status Code "200"    
+
+Cenário: POST Criar Usuario de Massa Estatico 201
+    [tags]        POSTUSERESTATICO
+    Criar Sessao
+    Criar Usuario Estatico Valido
+    Validar Status Code "201"
 
 # Sessão para criação de Keywords personalizadas
 *** Keywords ***
 Criar Sessao
     Create Session    serverest    https://serverest.dev/
 
-Validar Status Code "${statuscode}"
-    Should Be True    ${response.status_code} == ${statuscode}
-
-Validar Quantidade "${quantidade}"
-    Should Be Equal    ${response.json()["quantidade"]}     ${quantidade}
-
-Validar Se Mensagem Contem "${palavra}"
-    Should Contain    ${response.json()["message"]}    ${palavra}
-
-Printar Conteudo Response
-    Log to Console    Nome: ${response.json()["usuarios"][0]["nome"]}

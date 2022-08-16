@@ -1,105 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.9.12 on linux)" generated="20220814 11:13:08.125" rpa="false" schemaversion="3">
-<suite id="s1" name="Base" source="/home/lalo/Repositorios_Compass/RoboTron_Paulo_Conte_Compass_Projeto_Final/Aulas/base.robot">
-<test id="s1-t1" name="Cenário: GET Todos os Usuários 200" line="24">
+<robot generator="Robot 5.0.1 (Python 3.9.12 on linux)" generated="20220815 23:54:03.207" rpa="false" schemaversion="3">
+<suite id="s1" name="Main" source="/home/lalo/Repositorios_Compass/RoboTron_Paulo_Conte_Compass_Projeto_Final/main.robot">
+<test id="s1-t1" name="Cenário: POST Fazer login com usuário inexistente" line="16">
 <kw name="Criar Sessao">
 <kw name="Create Session" library="RequestsLibrary">
 <arg>serverest</arg>
 <arg>https://serverest.dev/</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20220814 11:13:08.200" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20220814 11:13:08.199" endtime="20220814 11:13:08.200"/>
+<msg timestamp="20220815 23:54:03.275" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220815 23:54:03.275" endtime="20220815 23:54:03.275"/>
 </kw>
-<status status="PASS" starttime="20220814 11:13:08.199" endtime="20220814 11:13:08.200"/>
+<status status="PASS" starttime="20220815 23:54:03.274" endtime="20220815 23:54:03.275"/>
 </kw>
-<kw name="GET Endpoint /Usuarios" library="usuarios_keywords">
-<kw name="GET On Session" library="RequestsLibrary">
+<kw name="POST Endpoint /Login com usuário inexistente" library="login_keywords">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{payload}</var>
+<arg>email=${email_errado}</arg>
+<arg>password=${password_para_login}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220815 23:54:03.277" level="INFO">&amp;{payload} = { email=nada@nada.com | password=teste }</msg>
+<status status="PASS" starttime="20220815 23:54:03.276" endtime="20220815 23:54:03.277"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
 <var>${response}</var>
 <arg>serverest</arg>
-<arg>/Usuarios</arg>
-<doc>Sends a GET request on a previously created HTTP Session.</doc>
-<msg timestamp="20220814 11:13:08.550" level="INFO">GET Request : url=https://serverest.dev/Usuarios 
- path_url=/Usuarios 
- headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive'} 
- body=None 
+<arg>/login</arg>
+<arg>data=&amp;{payload}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20220815 23:54:03.618" level="INFO">POST Request : url=https://serverest.dev/login 
+ path_url=/login 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '36', 'Content-Type': 'application/x-www-form-urlencoded'} 
+ body=email=nada%40nada.com&amp;password=teste 
  </msg>
-<msg timestamp="20220814 11:13:08.550" level="INFO">GET Response : url=https://serverest.dev/Usuarios 
- status=200, reason=OK 
- headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '89023428-25c5-4f78-b824-901ee486a066', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '293f0deaba26814382157642ee90ae49;o=1', 'Date': 'Sun, 14 Aug 2022 14:13:08 GMT', 'Server': 'Google Frontend', 'Content-Length': '460'} 
+<msg timestamp="20220815 23:54:03.618" level="INFO">POST Response : url=https://serverest.dev/login 
+ status=401, reason=Unauthorized 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '5eb44d5e-dacd-48f2-9e64-cba503641e9f', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': 'c6cf55e565b5a536bb10ed6cd4c93572', 'Date': 'Tue, 16 Aug 2022 02:54:03 GMT', 'Server': 'Google Frontend', 'Content-Length': '48'} 
  body={
-    "quantidade": 2,
-    "usuarios": [
-        {
-            "nome": "Fulano da Silva",
-            "email": "fulano@qa.com",
-            "password": "teste",
-            "administrador": "true",
-            "_id": "0uxuPY0cbmQhpEz1"
-        },
-        {
-            "nome": "James Bond",
-            "email": "jamesb@qa.com.br",
-            "password": "teste123",
-            "administrador": "true",
-            "_id": "kadbSLV7H5LGAqDR"
-        }
-    ]
+    "message": "Email e/ou senha inválidos"
 } 
  </msg>
-<msg timestamp="20220814 11:13:08.551" level="INFO">/home/lalo/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py:1043: InsecureRequestWarning: Unverified HTTPS request is being made to host 'serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+<msg timestamp="20220815 23:54:03.618" level="INFO">/home/lalo/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py:1043: InsecureRequestWarning: Unverified HTTPS request is being made to host 'serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
   warnings.warn(</msg>
-<msg timestamp="20220814 11:13:08.551" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220814 11:13:08.200" endtime="20220814 11:13:08.551"/>
+<msg timestamp="20220815 23:54:03.619" level="FAIL">HTTPError: 401 Client Error: Unauthorized for url: https://serverest.dev/login</msg>
+<status status="FAIL" starttime="20220815 23:54:03.277" endtime="20220815 23:54:03.620"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Resposta: ${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220815 23:54:03.621" endtime="20220815 23:54:03.621"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20220814 11:13:08.552" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220814 11:13:08.551" endtime="20220814 11:13:08.552"/>
+<status status="NOT RUN" starttime="20220815 23:54:03.621" endtime="20220815 23:54:03.621"/>
 </kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>Response: ${response.content}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220814 11:13:08.552" endtime="20220814 11:13:08.553"/>
+<status status="FAIL" starttime="20220815 23:54:03.275" endtime="20220815 23:54:03.622"/>
 </kw>
-<status status="PASS" starttime="20220814 11:13:08.200" endtime="20220814 11:13:08.553"/>
+<kw name="Validar Status Code &quot;401&quot;" library="login_keywords" sourcename="Validar Status Code &quot;${statuscode}&quot;">
+<status status="NOT RUN" starttime="20220815 23:54:03.623" endtime="20220815 23:54:03.623"/>
 </kw>
-<kw name="Validar Status Code &quot;200&quot;" library="common" sourcename="Validar Status Code &quot;${statuscode}&quot;">
-<kw name="Should Be True" library="BuiltIn">
-<arg>${response.status_code} == ${statuscode}</arg>
-<doc>Fails if the given condition is not true.</doc>
-<status status="PASS" starttime="20220814 11:13:08.554" endtime="20220814 11:13:08.556"/>
-</kw>
-<status status="PASS" starttime="20220814 11:13:08.553" endtime="20220814 11:13:08.556"/>
-</kw>
-<kw name="Validar Quantidade &quot;${1}&quot;" library="usuarios_keywords" sourcename="Validar Quantidade &quot;${quantidade}&quot;">
-<kw name="Should Be Equal" library="BuiltIn">
-<arg>${response.json()["quantidade"]}</arg>
-<arg>${quantidade}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<msg timestamp="20220814 11:13:08.559" level="FAIL">2 != 1</msg>
-<status status="FAIL" starttime="20220814 11:13:08.557" endtime="20220814 11:13:08.559"/>
-</kw>
-<status status="FAIL" starttime="20220814 11:13:08.556" endtime="20220814 11:13:08.560"/>
-</kw>
-<kw name="Printar Conteudo Response" library="usuarios_keywords">
-<status status="NOT RUN" starttime="20220814 11:13:08.560" endtime="20220814 11:13:08.560"/>
-</kw>
-<tag>GET</tag>
-<status status="FAIL" starttime="20220814 11:13:08.199" endtime="20220814 11:13:08.561">2 != 1</status>
+<tag>LOGININEX</tag>
+<status status="FAIL" starttime="20220815 23:54:03.274" endtime="20220815 23:54:03.624">HTTPError: 401 Client Error: Unauthorized for url: https://serverest.dev/login</status>
 </test>
 <doc>Arquivo simples para requisições HTTP em APIs REST</doc>
-<status status="FAIL" starttime="20220814 11:13:08.126" endtime="20220814 11:13:08.562"/>
+<status status="FAIL" starttime="20220815 23:54:03.208" endtime="20220815 23:54:03.625"/>
 </suite>
 <statistics>
 <total>
 <stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="0" fail="1" skip="0">GET</stat>
+<stat pass="0" fail="1" skip="0">LOGININEX</stat>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Base">Base</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="Main">Main</stat>
 </suite>
 </statistics>
 <errors>

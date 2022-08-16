@@ -1,6 +1,6 @@
 
 # Arquivo para exercicitar escrita TDD baseado em ações no Robot
-*** Test Cases ***
+#*** Test Cases ***
 Cenário: GET Todos os Usuarios 200
     GET Endpoint /produtos
     Validar todos os Produtos na response

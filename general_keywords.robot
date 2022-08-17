@@ -9,7 +9,10 @@ ${url}                     http://localhost:3000
 ${email_para_login}        fulano@qa.com
 ${password_para_login}     teste
 ${email_errado}            nada@nada.com
-
+${email_novo}              novoemail@novo.com
+${nome_novo}               "Novo nome"
+${senha_nova}              "senha123"
+${administrador}           true
 
 *** Keywords ***
 

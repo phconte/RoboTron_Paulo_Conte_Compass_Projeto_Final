@@ -1,13 +1,8 @@
 *** Settings ***
 Documentation        Keywords e Variaveis para ações do Endpoint de Login
 Library              RequestsLibrary
-
-*** Variables ***
-${response}
-${email_para_login}        fulano@qa.com
-${password_para_login}     teste
-${email_errado}            nada@nada.com
-       
+Resource             ../general_keywords.robot
+   
 
 
 *** Keywords ***
@@ -18,12 +13,14 @@ POST Endpoint /login
     Log To Console         Resposta: ${response.content}
     Set Global Variable    ${response}
 
-
-Validar Status Code "${statuscode}"
-    Should Be True         ${response.status_code} == ${statuscode}
-
 POST Endpoint /Login com usuário inexistente    
-    &{payload}             Create Dictionary    email=${email_errado}        password=${password_para_login}
-    ${response}            POST On Session      serverest    /login          data=&{payload}
+    &{payload}             Create Dictionary    email=${email_errado}        password="teste"
+    ${response}            POST On Session      serverest    /login          data=&{payload}    expected_status=any
+    Log To Console         Resposta: ${response.content}
+    Set Global Variable    ${response}
+
+POST Endpoint /Login com dados Inválidos
+    &{payload}             Create Dictionary    email=${email_para_login}        password=
+    ${response}            POST On Session      serverest    /login          data=&{payload}    expected_status=any
     Log To Console         Resposta: ${response.content}
     Set Global Variable    ${response}

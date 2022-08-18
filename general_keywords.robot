@@ -18,12 +18,16 @@ ${possui_carrinho}         True
 ${id_del}                  XbtXG857aAG5z6EH
 ${id_alterar}              XbtXG857aAG5z6E2
 ${token_auth}
+${id_produto}              BeeJh5lz3k6kSIzA
+
+
 
 
 *** Keywords ***
 
 Validar Status Code "${statuscode}"
-git
+    Should Be True         ${response.status_code} == ${statuscode}
+
 # Sempre deverá executar no terminal 'npx serverest' e manter o terminal isolado
 # Isto é: não fechar nem executar comandos no terminal rodando o server
 Criar Sessao

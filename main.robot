@@ -137,29 +137,72 @@ Cenário: POST Cadastrar Produto sem adm 403
     Validar Status Code "403"
 
 Cenário: DELETE Produto com sucesso 200
-    [Tags]        PRODUTOSEMADM
+    [Tags]        DELETARPRODUTO
     Criar Sessao
     Fazer Login e Armazenar Token
     Criar um Produto e Armazenar ID
     DELETE Endpoint /produtos
     Validar Status Code "200"    
 
-
-Cenário: DELETE Produto em carrinho 400
+#Cenário: DELETE Produto em um carrinho 400
+#    [Tags]        PRODUTOCOMCARRINHO
+#    Criar Sessao
+#    Fazer Login e Armazenar Token
+#    Criar um Produto e Armazenar ID
+#    DELETE Endpoint /produtos
+#    Validar Status Code "400"
 
 Cenário: DELETE Produto sem token 401
+    [Tags]        DELETARSEMTOKEN
+    Criar Sessao
+    Fazer Login e Armazenar Token
+    Criar um Produto e Armazenar ID
+    DELETE Endpoint /produtos sem token
+    Validar Status Code "401"    
 
 Cenário: DELETE Produto sem adm 403
+    [Tags]        DELETARSEMADM
+    Criar Sessao
+    Criar e logar sem ADM
+    DELETE Endpoint /produtos
+    Validar Status Code "403"
+
 
 Cenário: PUT Editar Produto com sucesso 200
+    [Tags]        EDITARPRODUTO
+    Criar Sessao
+    Fazer Login e Armazenar Token
+    PUT On Session /Produtos
+    Validar Status Code "200"  
 
-Cenário: PUT Editar Produto sem cadastro com sucesso 201
+Cenário: PUT Editar Produto sem cadastro 201
+    [Tags]        PRODUTOSEMCADASTRO
+    Criar Sessao
+    Fazer Login e Armazenar Token
+    PUT On Session /Produtos sem cadastro
+    Validar Status Code "201" 
 
 Cenário: PUT Editar Produto com nome existente 400
+    [Tags]        PRODUTOREPETIDO
+    Criar Sessao
+    Fazer Login e Armazenar Token
+    PUT On Session /Produtos
+    Validar Status Code "400" 
 
 Cenário: PUT Editar Produto sem token 401
+    [Tags]        PRODUTOSEMTOKEN
+    Criar Sessao
+    Fazer Login e Armazenar Token
+    PUT On Session /Produtos sem token
+    Validar Status Code "401" 
+
 
 Cenário: PUT Editar Produto sem adm 403
+    [Tags]        PRODUTOSEMADM
+    Criar Sessao
+    Criar e logar sem ADM
+    PUT On Session /Produtos
+    Validar Status Code "403" 
 
 ########################### /Carrinhos ###########################
 

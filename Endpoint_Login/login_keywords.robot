@@ -33,5 +33,11 @@ Fazer Login e Armazenar Token
     POST Endpoint /login
     Validar ter Logado
     ${token_auth}              Set Variable      ${response.json()["authorization"]}  
-    Log to Console             Token Salvo: ${token_auth}
+    Log to Console             Token Salvo:      ${token_auth}
+    Set Global Variable        ${token_auth}
+
+Fazer Login sem adm
+    POST Endpoint /login
+    ${token_auth}              Set Variable      ${response.json()["authorization"]}  
+    Log to Console             Token Salvo:      ${token_auth}
     Set Global Variable        ${token_auth}

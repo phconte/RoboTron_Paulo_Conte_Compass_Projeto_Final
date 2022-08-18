@@ -5,6 +5,7 @@ Resource            Endpoint_Login/login_keywords.robot
 Resource            general_keywords.robot
 Resource            Endpoint_Usuarios/usuarios_keywords.robot                   
 Resource            Endpoint_Carrinho/carrinho_keywords.robot
+Resource            Endpoint_Produtos/produtos_keywords.robot
 
 *** Variables ***
 
@@ -90,20 +91,59 @@ Cenário: PUT Cadastrar Usuario sem Sucesso 400
 ########################### /Produtos ##############################
 
 Cenário: GET Listar Produtos 200
+    [Tags]        LISTARPRODUTOS
+    Criar Sessao
+    GET On Session /Produtos
+    Validar Status Code "200"        
 
 Cenário: GET Buscar produto por ID com sucesso 200
+    [Tags]        BUSCARPRODUTO
+    Criar Sessao
+    GET On Session /Produtos por ID
+    Validar Status Code "200"    
 
 Cenário: GET Buscar produto por ID sem sucesso 400
+    [Tags]        PRODUTOSEMID
+    Criar Sessao
+    GET On Session /Produtos sem ID
+    Validar Status Code "400"    
 
 Cenário: POST Cadastrar Produto com sucesso 201
+    [Tags]        ADDPRODUTO
+    Criar Sessao
+    Fazer Login e Armazenar Token
+    POST On Session /Produtos
+    Validar Status Code "201"    
 
 Cenário: POST Cadastrar Produto com mesmo nome 400
+    [Tags]        PRODUTOIGUAL
+    Criar Sessao
+    Fazer Login e Armazenar Token
+    POST On Session /Produtos
+    Validar Status Code "400" 
 
 Cenário: POST Cadastrar Produto sem token 401
+    [Tags]        PRODUTOSEMTOKEN
+    Criar Sessao
+    Fazer Login e Armazenar Token
+    POST On Session /Produtos sem token
+    Validar Status Code "401"
 
 Cenário: POST Cadastrar Produto sem adm 403
+    [Tags]        PRODUTOSEMADM
+    Criar Sessao
+    Criar e logar sem ADM
+    POST On Session /Produtos
+    Validar Status Code "403"
 
 Cenário: DELETE Produto com sucesso 200
+    [Tags]        PRODUTOSEMADM
+    Criar Sessao
+    Fazer Login e Armazenar Token
+    Criar um Produto e Armazenar ID
+    DELETE Endpoint /produtos
+    Validar Status Code "200"    
+
 
 Cenário: DELETE Produto em carrinho 400
 

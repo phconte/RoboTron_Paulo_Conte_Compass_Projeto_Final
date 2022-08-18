@@ -23,10 +23,18 @@ GETid On Session /Usuarios
     Set Global Variable    ${response}
 
 DELETE On Session /Usuarios
-    Run Keyword If         ${possui_carrinho} == False    DELETAR
+    Run Keyword If         ${possui_carrinho} == False    DELETARUSER
     ...    ELSE            Skip                 'Não é possível deletar usuario que possui carrinho'
     
-DELETAR   
+DELETARUSER
     ${response}            DELETE On Session    serverest    /usuarios/${id_del}        expected_status=any
     Log To Console         Resposta: ${response.content}
     Set Global Variable    ${response}
+    Validar Status Code "200" 
+
+PUT On Session /Usuarios
+    &{cadastro_alterado}    Create Dictionary  nome=${nome_novo}      email=${email_novo}     password=${senha_nova}     administrador=${administrador}
+    ${response}             PUT On Session     serverest              /usuarios/${id_alterar}               data=&{cadastro_alterado}           expected_status=any
+    Log To Console          Resposta: ${response.content}
+    Set Global Variable     ${response}   
+    

@@ -53,7 +53,7 @@ Criar e logar sem ADM
 
 Criar Usuario Estatico Valido
     ${json}                Importar JSON Estatico        usuarios.json  
-    ${payload}             Set variable                  ${json["user_valido"]} 
+    ${payload}             Set variable                  ${json["user_default"]} 
     Set Global Variable    ${payload} 
     Log To Console         Response: ${payload}
 

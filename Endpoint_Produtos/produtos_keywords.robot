@@ -18,13 +18,13 @@ GET On Session /Produtos por ID
     Set Global Variable    ${response}
 
 GET On Session /Produtos sem ID
-    ${response}            GET On Session    serverest    /produtos/${id_produto}        expected_status=any
+    ${response}            GET On Session    serverest    /produtos/${id}        expected_status=any
     Log To Console         Resposta: ${response.content}
     Set Global Variable    ${response}
 
 POST On Session /Produtos
     &{header}              Create Dictionary    Authorization=${token_auth}
-    &{payload}             Create Dictionary    nome='Mouse lg'    preco=400    descricao='Mouse sem fio'    quantidade=100
+    &{payload}             Create Dictionary    nome='Mouse lg2'    preco=400    descricao='Mouse sem fio'    quantidade=100
     ${response}            POST On Session      serverest    /produtos    data=&{payload}    headers=&{header}    expected_status=any
     Log to Console         Response: ${response.content}
     Set Global Variable    ${response}
@@ -68,7 +68,7 @@ PUT On Session /Produtos
 
 PUT On Session /Produtos sem cadastro    
     &{header}               Create Dictionary    Authorization=${token_auth}
-    &{produto_alterado}     Create Dictionary    nome='Mouse razer1'    preco=400    descricao='Mouse com fio'    quantidade=100
+    &{produto_alterado}     Create Dictionary    nome='Mouse razer4'    preco=400    descricao='Mouse com fio'    quantidade=100
     ${response}             PUT On Session       serverest    /produtos/${id_produto}    data=&{produto_alterado}    headers=&{header}    expected_status=any
     Log To Console          Resposta: ${response.content}
     Set Global Variable     ${response}  
@@ -80,6 +80,9 @@ PUT On Session /Produtos sem token
     Log To Console          Resposta: ${response.content}
     Set Global Variable     ${response}  
 
+Produto ID Em carrinho
+    ${id_produto}             Set Variable        BeeJh5lz3k6kSIzA
+    Set Global Variable       ${id_produto}
 
 
 

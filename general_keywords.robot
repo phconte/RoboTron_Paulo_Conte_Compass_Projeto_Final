@@ -6,19 +6,19 @@ Library              RequestsLibrary
 *** Variables ***
 ${response}
 ${url}                     http://localhost:3000
-${email_para_login}        fulano@qa.com
+${email_para_login}        beltrano@qa.com.br
 ${password_para_login}     teste
 ${email_errado}            nada@nada.com
-${email_novo}              novoemail3@novo.com
-${nome_novo}               Novo alterado
-${senha_nova}              senha123
+${email_novo}              tonys@novo.com
+${nome_novo}               Tony Soprano
+${senha_nova}              senha1234
 ${administrador}           true
 ${id}                      0uxuPY0cbmQhpEz1
 ${possui_carrinho}         False
-${id_del}                  pso0IqqlBATbbDFf
-${id_alterar}              0uxuPY0cbmQhpEz0
+${id_del}                  jgjvjpnZ5ftqivEo
+${id_alterar}              TEOSL2d33FqnBI6i
 ${token_auth}
-${id_produto}              BeeJh5lz3k6kSIzA
+${id_produto}              T2blJHD4h6sFxDA0
 ${id_carrinho}             qbMqntef4iTOwWfg
 ${id_carrinho_errado}      qbMqntef4iT12345
 ${payload}

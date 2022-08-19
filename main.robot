@@ -101,6 +101,7 @@ Cenário: GET Listar Produtos 200
     GET On Session /Produtos
     Validar Status Code "200"        
 
+#Alterar ${id_produto}
 Cenário: GET Buscar produto por ID com sucesso 200
     [Tags]        BUSCARPRODUTO
     Criar Sessao
@@ -141,6 +142,7 @@ Cenário: POST Cadastrar Produto sem adm 403
     POST On Session /Produtos
     Validar Status Code "403"
 
+# Alterar nome do produto em POST On Session /Produtos
 Cenário: DELETE Produto com sucesso 200
     [Tags]        DELETARPRODUTO
     Criar Sessao
@@ -149,13 +151,13 @@ Cenário: DELETE Produto com sucesso 200
     DELETE Endpoint /produtos
     Validar Status Code "200"    
 
-#Cenário: DELETE Produto em um carrinho 400
-#    [Tags]        PRODUTOCOMCARRINHO
-#    Criar Sessao
-#    Fazer Login e Armazenar Token
-#    Criar um Produto e Armazenar ID
-#    DELETE Endpoint /produtos
-#    Validar Status Code "400"
+Cenário: DELETE Produto em um carrinho 400
+    [Tags]        PRODUTOCOMCARRINHO
+    Criar Sessao
+    Fazer Login e Armazenar Token
+    Produto ID Em carrinho
+    DELETE Endpoint /produtos
+    Validar Status Code "400"
 
 Cenário: DELETE Produto sem token 401
     [Tags]        DELETARSEMTOKEN
@@ -180,6 +182,8 @@ Cenário: PUT Editar Produto com sucesso 200
     PUT On Session /Produtos
     Validar Status Code "200"  
 
+# Alterar ${id_produto} para inexistente e nome do produto 
+# Em PUT On Session /Produtos sem cadastro 
 Cenário: PUT Editar Produto sem cadastro 201
     [Tags]        PRODUTOSEMCADASTRO
     Criar Sessao

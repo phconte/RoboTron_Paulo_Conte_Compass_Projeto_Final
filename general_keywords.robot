@@ -18,8 +18,9 @@ ${possui_carrinho}         True
 ${id_del}                  XbtXG857aAG5z6EH
 ${id_alterar}              XbtXG857aAG5z6E2
 ${token_auth}
-${id_produto}              YDhFb4Hqb4vW4uJ1
-
+${id_produto}              BeeJh5lz3k6kSIzA
+${id_carrinho}             qbMqntef4iTOwWf
+${payload}
 
 
 
@@ -32,3 +33,9 @@ Validar Status Code "${statuscode}"
 # Isto é: não fechar nem executar comandos no terminal rodando o server
 Criar Sessao
     Create Session    serverest    ${url}
+
+Importar JSON Estatico
+    [Arguments]    ${nome_arquivo}
+    ${arquivo}     Get File      ${EXECDIR}/${nome_arquivo}
+    ${data}        Evaluate      json.loads('''${arquivo}''')    json   
+    [return]       ${data}

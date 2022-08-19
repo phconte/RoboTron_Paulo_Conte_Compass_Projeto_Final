@@ -2,7 +2,6 @@
 Documentation       Arquivo simples para requisições HTTP em APIs REST
 Library             RequestsLibrary 
 Resource            Endpoint_Login/login_keywords.robot  
-Resource            general_keywords.robot
 Resource            Endpoint_Usuarios/usuarios_keywords.robot                   
 Resource            Endpoint_Carrinho/carrinho_keywords.robot
 Resource            Endpoint_Produtos/produtos_keywords.robot
@@ -224,21 +223,56 @@ Cenário: GET Carrinho por ID sem sucesso 400
     GET On Session /Carrinhos por ID
     Validar Status Code "400"  
 
-Cenário: POST Cadastrar Carrinho com sucesso 201
+Cenário: POST Cadastrar Carrinho de Massa Estatica com sucesso 201
     [Tags]        ADDCARRINHO
     Criar Sessao
     Fazer Login e Armazenar Token
-    POST On Session /Carrinhos
+    Criar Carrinho Estatico Valido    
     Validar Status Code "201"
 
-Cenário: POST Cadastrar Carrinho sem sucesso 400  
+Cenário: POST Cadastrar Carrinho sem sucesso 400
+    [Tags]        ADDCARRINHOERRO
+    Criar Sessao
+    Fazer Login e Armazenar Token
+    Criar Carrinho Estatico Valido
+    Criar Carrinho Estatico Valido
+    Validar Status Code "400"
 
 Cenário: POST Cadastrar Carrinho sem sucesso 401
+    [Tags]        CARRINHOSEMTOKEN
+    Criar Sessao
+    Fazer Login e Armazenar Token
+    Criar Carrinho Estatico Valido sem token
+    Validar Status Code "401"
 
 Cenário: DELETE Carrinho por compra concluída 200
+    [Tags]        DELCONCLUIDA
+    Criar Sessao
+    Fazer Login e Armazenar Token
+    Criar Carrinho Estatico Valido 
+    DELETE Endpoint /carrinhos/concluir-compra
+    Validar Status Code "200"  
 
 Cenário: DELETE Carrinho por compra concluída 401
+    [Tags]        DELSEMTOKEN
+    Criar Sessao
+    Fazer Login e Armazenar Token
+    Criar Carrinho Estatico Valido 
+    DELETE Endpoint /carrinhos/concluir-compra
+    Validar Status Code "401"  
 
 Cenário: DELETE Carrinho por compra cancelada 200
+    [Tags]        DELCANCELADA         
+    Criar Sessao
+    Fazer Login e Armazenar Token
+    Criar Carrinho Estatico Valido 
+    DELETE Endpoint /carrinhos/cancelar-compra
+    Validar Status Code "200" 
 
 Cenário: DELETE Carrinho por compra cancelada 401
+    [Tags]        DELSEMTOKEN
+    Criar Sessao
+    Fazer Login e Armazenar Token
+    Criar Carrinho Estatico Valido 
+    DELETE Endpoint /carrinhos/concluir-compra
+    Validar Status Code "401"  

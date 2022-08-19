@@ -18,7 +18,7 @@ GET On Session /Carrinhos por ID
 
 POST On Session /Carrinhos
     &{header}              Create Dictionary    Authorization=${token_auth}    
-    ${response}            POST On Session      serverest    /Carrinhos    json=&{payload}    headers=${header}
+    ${response}            POST On Session      serverest    /Carrinhos    json=&{payload}    headers=${header}    expected_status=any
     Log to Console         Response: ${response.content}
     Set Global Variable    ${response}
 
@@ -28,6 +28,24 @@ Criar Carrinho Estatico Valido
     Set Global Variable    ${payload}
     Log To Console         Response: ${payload}
     POST On Session /Carrinhos
+
+Criar Um Carrinho e Armazenar ID
+    Criar Carrinho Estatico Valido
+    Validar Ter Criado carrinho
+    ${id_carrinho}        Set Variable        ${response.json()["_id"]}   
+    Log To Console        id carrinho:        ${id_carrinho}
+    Set Global Variable   ${id_carrinho}
+
+Criar Um Carrinho e Armazenar ID errado
+    Criar Carrinho Estatico Valido
+    Validar Ter Criado carrinho
+    ${id_carrinho}        Set Variable        ${id_carrinho_errado}   
+    Log To Console        id carrinho:        ${id_carrinho}
+    Set Global Variable   ${id_carrinho}
+
+Validar Ter Criado carrinho
+    Should Be Equal            ${response.json()["message"]}    Cadastro realizado com sucesso
+    Should Not Be Empty        ${response.json()["_id"]} 
 
 POST On Session /Carrinhos sem token
     &{header}              Create Dictionary    Authorization=   

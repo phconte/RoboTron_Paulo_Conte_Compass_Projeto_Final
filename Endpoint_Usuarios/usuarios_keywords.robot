@@ -13,10 +13,9 @@ GET On Session /Usuarios
     Set Global Variable    ${response}
 
 POST On Session /Usuarios
-    &{cadastro}            Create Dictionary  nome=${nome_novo}      email=${email_novo}     password=${senha_nova}     administrador=${administrador}
-    ${response}            POST On Session    serverest              /usuarios               data=&{cadastro}           expected_status=any
-    Log To Console         Resposta: ${response.content}
-    Set Global Variable    ${response}
+    ${response}               POST On Session        serverest        /usuarios/    json=&{payload}    expected_status=any
+    Log To Console            Response: ${response.content}
+    Set Global Variable       ${response}
 
 GETid On Session /Usuarios
     ${response}            GET On Session    serverest    /usuarios/${id}        expected_status=any
@@ -51,3 +50,15 @@ Criar e logar sem ADM
     ${token_auth}          Set Variable      ${response.json()["authorization"]}  
     Log to Console         Token Salvo:      ${token_auth}
     Set Global Variable    ${token_auth}
+
+Criar Usuario Estatico Valido
+    ${json}                Importar JSON Estatico        usuarios.json  
+    ${payload}             Set variable                  ${json["user_valido"]} 
+    Set Global Variable    ${payload} 
+    Log To Console         Response: ${payload}
+
+Criar Usuario Estatico Invalido
+    ${json}                Importar JSON Estatico        usuarios.json  
+    ${payload}             Set variable                  ${json["user_invalido"]} 
+    Set Global Variable    ${payload} 
+    Log To Console         Response: ${payload}

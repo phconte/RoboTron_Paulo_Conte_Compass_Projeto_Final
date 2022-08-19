@@ -9,17 +9,18 @@ ${url}                     http://localhost:3000
 ${email_para_login}        fulano@qa.com
 ${password_para_login}     teste
 ${email_errado}            nada@nada.com
-${email_novo}              novoemail2@novo.com
+${email_novo}              novoemail3@novo.com
 ${nome_novo}               Novo alterado
 ${senha_nova}              senha123
 ${administrador}           true
-${id}                      qbMqntef4iTOwWf1
-${possui_carrinho}         True
-${id_del}                  XbtXG857aAG5z6EH
-${id_alterar}              XbtXG857aAG5z6E2
+${id}                      0uxuPY0cbmQhpEz1
+${possui_carrinho}         False
+${id_del}                  pso0IqqlBATbbDFf
+${id_alterar}              0uxuPY0cbmQhpEz0
 ${token_auth}
 ${id_produto}              BeeJh5lz3k6kSIzA
-${id_carrinho}             qbMqntef4iTOwWf
+${id_carrinho}             qbMqntef4iTOwWfg
+${id_carrinho_errado}      qbMqntef4iT12345
 ${payload}
 
 

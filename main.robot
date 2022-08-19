@@ -42,12 +42,14 @@ Cenário: GET Listar usuários cadastrados com Sucesso 200
 Cenário: POST Cadastrar Usuario com sucesso 201
     [Tags]        ADDUSER
     Criar Sessao
+    Criar Usuario Estatico Valido
     POST On Session /Usuarios
     Validar Status Code "201"  
 
 Cenário: POST Tentar Cadastrar Usuario existente 400
     [Tags]        USEREXIST
     Criar Sessao
+    Criar Usuario Estatico Invalido
     POST On Session /Usuarios
     Validar Status Code "400" 
 
@@ -55,30 +57,34 @@ Cenário: GET Buscar Usuario por ID com sucesso 200
     [Tags]        USERID
     Criar Sessao
     GETid On Session /Usuarios
-    Validar Status Code "200"  
-
+    Validar Status Code "200"
+  
+#Alterar ${id} para rodar
 Cenário: GET Buscar Usuario por ID sem sucesso 400
     [Tags]        USERSEMID
     Criar Sessao
     GETid On Session /Usuarios
     Validar Status Code "400"  
 
+#Alterar ${possui_carrinho} para false se quiser deletar
 Cenário: DELETE Usuario por ID
     [Tags]        DELUSER
     Criar Sessao
     DELETE On Session /Usuarios
 
+#Setar ${id_alterar} existente e nome, email e password ${xxx_novo}
 Cenário: PUT Alterar Usuario com Sucesso 200
     [Tags]        PUTUSER
     Criar Sessao
     PUT On Session /Usuarios
     Validar Status Code "200"  
 
+#Alterar ${id_alterar} e ${email_novo} para inexistentes
 Cenário: PUT Cadastrar Usuario com Sucesso 201
     [Tags]        PUTUSERNOVO
     Criar Sessao
     PUT On Session /Usuarios
-    Validar Status Code "201"  
+    Validar Status Code "201"
 
 Cenário: PUT Cadastrar Usuario sem Sucesso 400
     [Tags]        PUTEMAILEXIST
@@ -214,12 +220,18 @@ Cenário: GET Lista Carrinho com sucesso 200
 Cenário: GET Carrinho por ID com sucesso 200
     [Tags]        CARRINHOID
     Criar Sessao
+    Fazer Login e Armazenar Token
+    DELETE Endpoint /carrinhos/concluir-compra
+    Criar Um Carrinho e Armazenar ID
     GET On Session /Carrinhos por ID
     Validar Status Code "200"  
 
 Cenário: GET Carrinho por ID sem sucesso 400
     [Tags]        CARRINHOERROR
     Criar Sessao
+    Fazer Login e Armazenar Token
+    DELETE Endpoint /carrinhos/concluir-compra
+    Criar Um Carrinho e Armazenar ID errado
     GET On Session /Carrinhos por ID
     Validar Status Code "400"  
 
@@ -227,6 +239,7 @@ Cenário: POST Cadastrar Carrinho de Massa Estatica com sucesso 201
     [Tags]        ADDCARRINHO
     Criar Sessao
     Fazer Login e Armazenar Token
+    DELETE Endpoint /carrinhos/concluir-compra
     Criar Carrinho Estatico Valido    
     Validar Status Code "201"
 
@@ -256,8 +269,7 @@ Cenário: DELETE Carrinho por compra concluída 200
 Cenário: DELETE Carrinho por compra concluída 401
     [Tags]        DELSEMTOKEN
     Criar Sessao
-    Fazer Login e Armazenar Token
-    Criar Carrinho Estatico Valido 
+    Criar Carrinho Estatico Valido sem token
     DELETE Endpoint /carrinhos/concluir-compra
     Validar Status Code "401"  
 
@@ -272,7 +284,6 @@ Cenário: DELETE Carrinho por compra cancelada 200
 Cenário: DELETE Carrinho por compra cancelada 401
     [Tags]        DELSEMTOKEN
     Criar Sessao
-    Fazer Login e Armazenar Token
     Criar Carrinho Estatico Valido 
     DELETE Endpoint /carrinhos/concluir-compra
     Validar Status Code "401"  

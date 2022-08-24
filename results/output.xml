@@ -1,90 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.10.0 on linux)" generated="20220819 13:53:37.421" rpa="false" schemaversion="3">
+<robot generator="Robot 5.0.1 (Python 3.10.0 on linux)" generated="20220819 15:21:23.653" rpa="false" schemaversion="3">
 <suite id="s1" name="RoboTron Paulo Conte Compass Projeto Final" source="/home/lalo/Repositorios_Compass/RoboTron_Paulo_Conte_Compass_Projeto_Final">
 <suite id="s1-s1" name="Main" source="/home/lalo/Repositorios_Compass/RoboTron_Paulo_Conte_Compass_Projeto_Final/main.robot">
-<test id="s1-s1-t1" name="Cenário: PUT Alterar Usuario com Sucesso 200" line="76">
+<test id="s1-s1-t1" name="Cenário: DELETE Usuario por ID" line="70">
 <kw name="Criar Sessao" library="general_keywords">
 <kw name="Create Session" library="RequestsLibrary">
 <arg>serverest</arg>
 <arg>${url}</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20220819 13:53:37.552" level="INFO">Creating Session using : alias=serverest, url=http://localhost:3000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20220819 13:53:37.552" endtime="20220819 13:53:37.554"/>
+<msg timestamp="20220819 15:21:23.758" level="INFO">Creating Session using : alias=serverest, url=http://localhost:3000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220819 15:21:23.757" endtime="20220819 15:21:23.759"/>
 </kw>
-<status status="PASS" starttime="20220819 13:53:37.550" endtime="20220819 13:53:37.555"/>
+<status status="PASS" starttime="20220819 15:21:23.757" endtime="20220819 15:21:23.759"/>
 </kw>
-<kw name="PUT On Session /Usuarios" library="usuarios_keywords">
-<kw name="Create Dictionary" library="BuiltIn">
-<var>&amp;{cadastro_alterado}</var>
-<arg>nome=${nome_novo}</arg>
-<arg>email=${email_novo}</arg>
-<arg>password=${senha_nova}</arg>
-<arg>administrador=${administrador}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220819 13:53:37.559" level="INFO">&amp;{cadastro_alterado} = { nome=Tony Soprano | email=tonys@novo.com | password=senha1234 | administrador=true }</msg>
-<status status="PASS" starttime="20220819 13:53:37.557" endtime="20220819 13:53:37.560"/>
+<kw name="DELETE On Session /Usuarios" library="usuarios_keywords">
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${possui_carrinho} == False</arg>
+<arg>DELETARUSER</arg>
+<arg>ELSE</arg>
+<arg>Skip</arg>
+<arg>'Não é possível deletar usuario que possui carrinho'</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Skip" library="BuiltIn">
+<arg>'Não é possível deletar usuario que possui carrinho'</arg>
+<doc>Skips the rest of the current test.</doc>
+<msg timestamp="20220819 15:21:23.761" level="SKIP">'Não é possível deletar usuario que possui carrinho'</msg>
+<status status="SKIP" starttime="20220819 15:21:23.760" endtime="20220819 15:21:23.762"/>
 </kw>
-<kw name="PUT On Session" library="RequestsLibrary">
-<var>${response}</var>
-<arg>serverest</arg>
-<arg>/usuarios/${id_alterar}</arg>
-<arg>data=&amp;{cadastro_alterado}</arg>
-<arg>expected_status=any</arg>
-<doc>Sends a PUT request on a previously created HTTP Session.</doc>
-<msg timestamp="20220819 13:53:37.569" level="INFO">PUT Request : url=http://localhost:3000/usuarios/TEOSL2d33FqnBI6i 
- path_url=/usuarios/TEOSL2d33FqnBI6i 
- headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '78', 'Content-Type': 'application/x-www-form-urlencoded'} 
- body=nome=Tony+Soprano&amp;email=tonys%40novo.com&amp;password=senha1234&amp;administrador=true 
- </msg>
-<msg timestamp="20220819 13:53:37.572" level="INFO">PUT Response : url=http://localhost:3000/usuarios/TEOSL2d33FqnBI6i 
- status=200, reason=OK 
- headers={'Access-Control-Allow-Origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': 'd538e175-1bcc-46fb-9887-28407113e439', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '50', 'Date': 'Fri, 19 Aug 2022 16:53:37 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
- body={
-    "message": "Registro alterado com sucesso"
-} 
- </msg>
-<msg timestamp="20220819 13:53:37.573" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220819 13:53:37.560" endtime="20220819 13:53:37.574"/>
+<status status="SKIP" starttime="20220819 15:21:23.760" endtime="20220819 15:21:23.762"/>
 </kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>Resposta: ${response.content}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220819 13:53:37.575" endtime="20220819 13:53:37.576"/>
+<status status="SKIP" starttime="20220819 15:21:23.759" endtime="20220819 15:21:23.762"/>
 </kw>
-<kw name="Set Global Variable" library="BuiltIn">
-<arg>${response}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20220819 13:53:37.576" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220819 13:53:37.576" endtime="20220819 13:53:37.577"/>
-</kw>
-<status status="PASS" starttime="20220819 13:53:37.556" endtime="20220819 13:53:37.578"/>
-</kw>
-<kw name="Validar Status Code &quot;200&quot;" library="general_keywords" sourcename="Validar Status Code &quot;${statuscode}&quot;">
-<kw name="Should Be True" library="BuiltIn">
-<arg>${response.status_code} == ${statuscode}</arg>
-<doc>Fails if the given condition is not true.</doc>
-<status status="PASS" starttime="20220819 13:53:37.579" endtime="20220819 13:53:37.581"/>
-</kw>
-<status status="PASS" starttime="20220819 13:53:37.578" endtime="20220819 13:53:37.581"/>
-</kw>
-<tag>PUTUSER</tag>
-<status status="PASS" starttime="20220819 13:53:37.548" endtime="20220819 13:53:37.581"/>
+<tag>DELUSER</tag>
+<status status="SKIP" starttime="20220819 15:21:23.756" endtime="20220819 15:21:23.762">'Não é possível deletar usuario que possui carrinho'</status>
 </test>
 <doc>Arquivo simples para requisições HTTP em APIs REST</doc>
-<status status="PASS" starttime="20220819 13:53:37.454" endtime="20220819 13:53:37.582"/>
+<status status="SKIP" starttime="20220819 15:21:23.673" endtime="20220819 15:21:23.763"/>
 </suite>
-<status status="PASS" starttime="20220819 13:53:37.425" endtime="20220819 13:53:37.585"/>
+<status status="SKIP" starttime="20220819 15:21:23.655" endtime="20220819 15:21:23.765"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="0" skip="1">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">PUTUSER</stat>
+<stat pass="0" fail="0" skip="1">DELUSER</stat>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="RoboTron Paulo Conte Compass Projeto Final">RoboTron Paulo Conte Compass Projeto Final</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s1" name="Main">RoboTron Paulo Conte Compass Projeto Final.Main</stat>
+<stat pass="0" fail="0" skip="1" id="s1" name="RoboTron Paulo Conte Compass Projeto Final">RoboTron Paulo Conte Compass Projeto Final</stat>
+<stat pass="0" fail="0" skip="1" id="s1-s1" name="Main">RoboTron Paulo Conte Compass Projeto Final.Main</stat>
 </suite>
 </statistics>
 <errors>

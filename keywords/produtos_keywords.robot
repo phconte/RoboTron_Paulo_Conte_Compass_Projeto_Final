@@ -2,7 +2,7 @@
 Documentation       Keywords e Variaveis para ações do Endpoint de Usuarios
 
 Library             RequestsLibrary
-Resource            ../general_keywords.robot
+Resource            ../support/base.robot
 
 
 *** Keywords ***

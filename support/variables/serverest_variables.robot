@@ -1,6 +1,6 @@
 *** Variables ***
 
-${BASE_URI}        http://localhost:3000
+${BASE_URI}                http://localhost:3000
 ${response}
 ${email_para_login}         beltrano@qa.com.br
 ${password_para_login}      teste
@@ -18,3 +18,6 @@ ${id_produto}               ldaqyFDywBQtsQss
 ${id_carrinho}              qbMqntef4iTOwWfg
 ${id_carrinho_errado}       qbMqntef4iT12345
 ${payload}
+${name}
+${email}
+

@@ -70,3 +70,9 @@ Cenário 12: PUT Cadastrar Usuario sem Sucesso 400
     Criar Sessao
     PUT On Session /Usuarios
     Validar Status Code "400"
+
+Cenário 39: POST Criar Usuario de Massa Dinamica 201
+    [Tags]    postuserdinamico
+    Criar Sessao
+    Cadastrar Usuario Dinamico Valido
+    Validar Status Code "201"

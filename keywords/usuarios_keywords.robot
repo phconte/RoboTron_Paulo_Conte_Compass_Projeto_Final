@@ -15,7 +15,7 @@ GET On Session /Usuarios
 POST On Session /Usuarios
     ${response}    POST On Session
     ...    serverest
-    ...    /usuarios/
+    ...    /usuarios
     ...    json=&{payload}
     ...    expected_status=any
     Log To Console    Response: ${response.content}
@@ -48,9 +48,6 @@ PUT On Session /Usuarios
     ${response}    PUT On Session
     ...    serverest
     ...    /usuarios/${id_alterar}
-    ...    data=&{cadastro_alterado}
-    ...    expected_status=any
-    Log To Console    Resposta: ${response.content}
     Set Global Variable    ${response}
 
 Criar e logar sem ADM
@@ -75,13 +72,18 @@ Criar e logar sem ADM
     Set Global Variable    ${token_auth}
 
 Criar Usuario Estatico Valido
-    ${json}    Importar JSON Estatico    usuarios.json
+    ${json}    Importar JSON Estatico    ./support/fixtures/static/usuarios.json
     ${payload}    Set variable    ${json["user_default"]}
     Set Global Variable    ${payload}
     Log To Console    Response: ${payload}
 
 Criar Usuario Estatico Invalido
-    ${json}    Importar JSON Estatico    usuarios.json
+    ${json}    Importar JSON Estatico    ./support/fixtures/static/usuarios.json
     ${payload}    Set variable    ${json["user_invalido"]}
     Set Global Variable    ${payload}
     Log To Console    Response: ${payload}
+
+Cadastrar Usuario Dinamico Valido
+    ${payload}                      Criar Usuario Dinamico Valido
+    Set Global Variable             ${payload}
+    POST On Session /Usuarios

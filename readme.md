@@ -6,7 +6,7 @@
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://github.com/phconte/RoboTron_Paulo_Conte_Compass_Projeto_Final/blob/main/LICENCE) 
 ![Python](https://img.shields.io/pypi/pyversions/p)
 ![Commit](https://img.shields.io/github/last-commit/phconte/RoboTron_Paulo_Conte_Compass_Projeto_Final)
-![Badge ServeRest](https://img.shields.io/badge/API-ServeRest-green)](https://github.com/ServeRest/ServeRest/)
+[!Badge ServeRest](https://img.shields.io/badge/API-ServeRest-green)](https://github.com/ServeRest/ServeRest/)
 
 
 # Sobre o projeto
@@ -18,7 +18,7 @@ Este repositório é utilizado para commits do Projeto Final (Sprints 05 e 06) u
     - [Keywords]
     - [Tests Case]
 - [Pré-requisitos](#pré-requisitos)
-- [Execução do Projeto](#Execução%20do%20projeto)
+- [Execução do Projeto](#Execução%20do%20Projeto)
 - [Autor](#Autor)
 - [Agradecimentos](#Agradecimentos)
 
@@ -100,8 +100,8 @@ robot -d ./reports -i TAG_DESEJADA ./tests/SUITE_DESEJADA.robot
 ```
 
 
-# Autor
+## Autor
 
 [Paulo Henrique Conte](https://www.linkedin.com/in/paulohconte)
 
-# Agradecimentos
+## Agradecimentos

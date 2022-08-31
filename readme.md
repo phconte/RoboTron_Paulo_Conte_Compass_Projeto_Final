@@ -16,7 +16,10 @@ Este repositório é utilizado para commits do Projeto Final (Sprints 05 e 06) u
 # Sumário
 - [Infra]
     - [Keywords]
-    - [Tests Case]
+    - [Tests Case]()
+- [Mapa Mental das Rotas]
+    -[Mapa PNG](Imagens/ServeRest-Map.png)
+    -[Mapa .xmind](Imagens/ServeRest.xmind)
 - [Pré-requisitos](#pré-requisitos)
 - [Execução do Projeto](#Execução%20do%20Projeto)
 - [Autor](#Autor)

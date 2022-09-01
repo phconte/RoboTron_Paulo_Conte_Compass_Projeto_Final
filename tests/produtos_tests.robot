@@ -5,7 +5,7 @@ Library             RequestsLibrary
 Resource            ../keywords/login_keywords.robot
 Resource            ../keywords/produtos_keywords.robot
 Resource            ../keywords/usuarios_keywords.robot
-Test Setup          Criar Sessao
+Test Setup          Criar Sessao  
 
 
 *** Test Cases ***
@@ -111,3 +111,8 @@ Cenário 28: PUT Editar Produto sem adm 403
     Criar e logar sem ADM
     PUT On Session /Produtos
     Validar Status Code "403"
+
+Cenário 40: POST Criar Produto de Massa Dinamica 201
+    [Tags]    postprodutodinamico      
+    Cadastrar Produto Dinamico Valido
+    Validar Status Code "201"

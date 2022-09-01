@@ -23,18 +23,13 @@ GET On Session /Produtos sem ID
 
 POST On Session /Produtos
     &{header}    Create Dictionary    Authorization=${token_auth}
-    &{payload}    Create Dictionary
-    ...    nome='Mouse lg3'
-    ...    preco=400
-    ...    descricao='Mouse sem fio'
-    ...    quantidade=100
     ${response}    POST On Session
     ...    serverest
     ...    /produtos
-    ...    data=&{payload}
-    ...    headers=&{header}
+    ...    json=&{payload}
+    ...    headers=${header}
     ...    expected_status=any
-    Log to Console    Response: ${response.content}
+    Log To Console    Response: ${response.content}
     Set Global Variable    ${response}
 
 POST On Session /Produtos sem token
@@ -135,3 +130,8 @@ PUT On Session /Produtos sem token
 Produto ID Em carrinho
     ${id_produto}    Set Variable    BeeJh5lz3k6kSIzA
     Set Global Variable    ${id_produto}
+
+Cadastrar Produto Dinamico Valido
+    ${payload}                      Criar Produto Dinamico Valido
+    Set Global Variable             ${payload}
+    POST On Session /Produtos

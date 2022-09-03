@@ -14,10 +14,10 @@ Este repositório é utilizado para commits do Projeto Final (Sprints 05 e 06) u
 
 
 # Sumário
-- [Infra]
-    - [Keywords]
+- [Infra]()
+    - [Keywords]()
     - [Tests Case]()
-- [Mapa Mental das Rotas]
+- [Mapa Mental das Rotas]()
     - [Mapa PNG](Imagens/ServeRest-Map.png)
     - [Mapa .xmind](Imagens/ServeRest.xmind)
 - [Pré-requisitos](#pré-requisitos)
@@ -68,7 +68,7 @@ Execute o seguinte comando no terminal:
 npx serverest@latest
 ```
 
-### Localmente com docker
+### Localmente com docker 🐳
 
 Execute o seguinte comando no terminal:
 

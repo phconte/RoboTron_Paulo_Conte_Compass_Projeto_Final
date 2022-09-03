@@ -1,0 +1,30 @@
+{
+    "user_default": {
+        "email": "beltrano@qa.com.br",
+        "password": "teste"
+    },
+    "user_valido": {
+        "email": "tony5@qa.com.br",
+        "password": "123"
+    },
+    "user_invalido": {
+        "email": "invalid@qa.com",
+        "password": "123"
+    },
+    "user_sem_senha": {
+        "email": "paulie@qa.com.br",
+        "password": ""
+    },
+    "user_sem_email": {
+        "email": "",
+        "password": "teste"
+    },
+    "user_sem_adm": {
+        "email": "bcs@qa.com.br",
+        "password": "teste"
+    },
+    "user_novo": {
+        "email": "tony7@qa.com.br",
+        "password": "123"
+    }
+}

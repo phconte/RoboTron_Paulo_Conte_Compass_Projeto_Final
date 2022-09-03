@@ -7,13 +7,13 @@
     },
     "user_valido": {
         "nome": "Tony B.",
-        "email": "tony9@qa.com.br",
+        "email": "tony10@qa.com.br",
         "password": "123",
         "administrador": "true"
     },
     "user_invalido": {
         "nome": "Invalido da Silva",
-        "email": "fulano@qa.com",
+        "email": "invalido@qa.com",
         "password": "123",
         "administrador": "true"
     },

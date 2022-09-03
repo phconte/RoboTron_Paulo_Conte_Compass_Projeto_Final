@@ -2,10 +2,9 @@
 Documentation       Arquivo de testes para o Endpoint /produtos
 
 Library             RequestsLibrary
-Resource            ../keywords/login_keywords.robot
-Resource            ../keywords/produtos_keywords.robot
-Resource            ../keywords/usuarios_keywords.robot
-Test Setup          Criar Sessao  
+Resource            ../support/base.robot
+
+Test Setup          Criar Sessao
 
 
 *** Test Cases ***
@@ -14,17 +13,17 @@ Cenário 13: GET Listar Produtos 200
     GET On Session /Produtos
     Validar Status Code "200"
 
-#Alterar ${id_produto}
-
 Cenário 14: GET Buscar produto por ID com sucesso 200
     [Tags]    buscarproduto
-    GET On Session /Produtos por ID
+    Fazer Login e Armazenar Token
+    Cadastrar Produto Dinamico Valido
+    GET On Session /Produtos "${id_produto}"
     Validar Status Code "200"
 
 Cenário 15: GET Buscar produto por ID sem sucesso 400
     [Tags]    produtosemid
-    GET On Session /Produtos sem ID
-    Validar Status Code "400"
+    GET On Session /Produtos "1111111"
+    Validar Status Code "400"git 
 
 Cenário 16: POST Cadastrar Produto com sucesso 201
     [Tags]    addproduto
@@ -113,6 +112,6 @@ Cenário 28: PUT Editar Produto sem adm 403
     Validar Status Code "403"
 
 Cenário 40: POST Criar Produto de Massa Dinamica 201
-    [Tags]    postprodutodinamico      
+    [Tags]    postprodutodinamico
     Cadastrar Produto Dinamico Valido
     Validar Status Code "201"

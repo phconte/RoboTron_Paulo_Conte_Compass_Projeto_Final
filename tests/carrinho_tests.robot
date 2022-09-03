@@ -2,8 +2,8 @@
 Documentation       Arquivo de testes para o Endpoint /carrinho
 
 Library             RequestsLibrary
-Resource            ../keywords/login_keywords.robot
-Resource            ../keywords/carrinho_keywords.robot
+Resource            ../support/base.robot
+
 Test Setup          Criar Sessao
 
 

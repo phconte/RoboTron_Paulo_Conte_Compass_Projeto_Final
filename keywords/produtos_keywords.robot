@@ -11,7 +11,7 @@ GET On Session /Produtos
     Log To Console    Resposta: ${response.content}
     Set Global Variable    ${response}
 
-GET On Session /Produtos por ID
+GET On Session /Produtos "${id_produto}"
     ${response}    GET On Session    serverest    /produtos/${id_produto}    expected_status=any
     Log To Console    Resposta: ${response.content}
     Set Global Variable    ${response}
@@ -31,6 +31,10 @@ POST On Session /Produtos
     ...    expected_status=any
     Log To Console    Response: ${response.content}
     Set Global Variable    ${response}
+    IF    "${response.status_code}" == "201"
+        ${id_produto}    Set Variable    ${response.json()["_id"]}
+        Set Global Variable    ${id_produto}
+    END
 
 POST On Session /Produtos sem token
     &{header}    Create Dictionary    Authorization=
@@ -132,6 +136,5 @@ Produto ID Em carrinho
     Set Global Variable    ${id_produto}
 
 Cadastrar Produto Dinamico Valido
-    ${payload}                      Criar Produto Dinamico Valido
-    Set Global Variable             ${payload}
+    ${payload}    Criar Produto Dinamico Valido    
     POST On Session /Produtos

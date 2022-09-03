@@ -2,7 +2,7 @@
 Documentation       Arquivo de testes para o Endpoint /usuarios
 
 Library             RequestsLibrary
-Resource            ../keywords/usuarios_keywords.robot
+Resource            ../support/base.robot
 
 Test Setup          Criar Sessao
 

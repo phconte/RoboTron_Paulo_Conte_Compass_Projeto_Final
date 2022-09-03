@@ -2,7 +2,7 @@
 Documentation       Arquivo de testes para o Endpoint /login
 
 Library             RequestsLibrary
-Resource            ../keywords/login_keywords.robot
+Resource            ../support/base.robot
 
 Test Setup          Criar Sessao
 
@@ -24,5 +24,6 @@ Cenário 02: POST Fazer login com usuário inexistente 401
 
 Cenário 03: POST Fazer login com dados Inválidos 400
     [Tags]    loginv
-    POST Endpoint /Login com dados Inválidos
+    Pegar usuario para Login "user_sem_email"
+    POST Endpoint /Login
     Validar Status Code "400"

@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation       Arquivo simples para requisições HTTP em APIs REST
+Documentation       Arquivo base para requisições HTTP em APIs REST
 
 Library             RequestsLibrary
 Library             Collections

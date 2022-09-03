@@ -7,7 +7,7 @@
     },
     "user_valido": {
         "nome": "Tony Soprano",
-        "email": "tony3@qa.com.br",
+        "email": "tony7@qa.com.br",
         "password": "123",
         "administrador": "true"
     },
@@ -34,5 +34,11 @@
         "email": "bcs@qa.com.br",
         "password": "teste",
         "administrador": "false"
+    },
+    "user_novo": {
+        "nome": "Tony Soprano",
+        "email": "tony7@qa.com.br",
+        "password": "123",
+        "administrador": "true"
     }
 }

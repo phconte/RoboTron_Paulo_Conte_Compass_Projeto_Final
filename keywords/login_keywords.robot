@@ -3,7 +3,7 @@ Documentation       Keywords e Variaveis para ações do Endpoint de Login
 
 Library             RequestsLibrary
 Resource            ../support/base.robot
-Resource            ../support/base.robot
+
 
 
 *** Keywords ***

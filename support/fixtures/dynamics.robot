@@ -16,7 +16,7 @@ Criar Usuario Dinamico Valido
     ...    password=Teste123
     ...    administrador=true
     Log To Console    ${payload}
-    [return]          ${payload}
+    Set Global Variable    ${payload}
 
 Criar Produto Dinamico Valido
     ${nome}    FakerLibrary.Word
@@ -29,4 +29,4 @@ Criar Produto Dinamico Valido
     ...    descricao=${descricao}
     ...    quantidade=${quantidade}
     Log To Console    ${payload}
-    [return]          ${payload}
+    Set Global Variable    ${payload}

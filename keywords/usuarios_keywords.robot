@@ -3,7 +3,7 @@ Documentation       Keywords e Variaveis para ações do Endpoint de Usuarios
 
 Library             RequestsLibrary
 Resource            ../support/base.robot
-Resource            ./login_keywords.robot
+#Resource    ./login_keywords.robot
 
 
 *** Keywords ***
@@ -16,7 +16,7 @@ POST On Session /Usuarios
     ${response}    POST On Session
     ...    serverest
     ...    /usuarios
-    ...    json=&{payload}
+    ...    json=${payload}
     ...    expected_status=any
     Log To Console    Response: ${response.content}
     Set Global Variable    ${response}
@@ -27,27 +27,19 @@ GETid On Session /Usuarios
     Set Global Variable    ${response}
 
 DELETE On Session /Usuarios
-    IF    ${possui_carrinho} == False
-        DELETARUSER
-    ELSE
-        Skip    'Não é possível deletar usuario que possui carrinho'
-    END
-
-DELETARUSER
-    ${response}    DELETE On Session    serverest    /usuarios/${id_del}    expected_status=any
+    ${response}    DELETE On Session
+    ...    serverest
+    ...    /usuarios/${response.json()["_id"]}
+    ...    json=&{payload}
     Log To Console    Resposta: ${response.content}
     Set Global Variable    ${response}
-    Validar Status Code "200"
 
 PUT On Session /Usuarios
-    &{cadastro_alterado}    Create Dictionary
-    ...    nome=${nome_novo}
-    ...    email=${email_novo}
-    ...    password=${senha_nova}
-    ...    administrador=${administrador}
     ${response}    PUT On Session
     ...    serverest
-    ...    /usuarios/${id_alterar}
+    ...    /usuarios/${response.json()["_id"]}
+    ...    json=&{payload}
+    Log To Console    Resposta: ${response.content}
     Set Global Variable    ${response}
 
 Criar e logar sem ADM
@@ -71,19 +63,14 @@ Criar e logar sem ADM
     Log to Console    Token Salvo:    ${token_auth}
     Set Global Variable    ${token_auth}
 
-Criar Usuario Estatico Valido
-    ${json}    Importar JSON Estatico    ./support/fixtures/static/usuarios.json
-    ${payload}    Set variable    ${json["user_default"]}
+Pegar Dados Usuario Estatico Valido "${user}"
+    ${json}    Importar JSON Estatico    usuarios.json
+    ${payload}    Set variable    ${json["${user}"]}
     Set Global Variable    ${payload}
     Log To Console    Response: ${payload}
 
 Criar Usuario Estatico Invalido
-    ${json}    Importar JSON Estatico    ./support/fixtures/static/usuarios.json
+    ${json}    Importar JSON Estatico    usuarios.json
     ${payload}    Set variable    ${json["user_invalido"]}
     Set Global Variable    ${payload}
     Log To Console    Response: ${payload}
-
-Cadastrar Usuario Dinamico Valido
-    ${payload}                      Criar Usuario Dinamico Valido
-    Set Global Variable             ${payload}
-    POST On Session /Usuarios

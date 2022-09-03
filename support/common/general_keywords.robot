@@ -1,5 +1,6 @@
 *** Settings ***
 Documentation       Keywords e Variaveis para ações Gerais
+
 Library             OperatingSystem
 Library             RequestsLibrary
 Resource            ../variables/serverest_variables.robot
@@ -12,7 +13,6 @@ Validar Status Code "${statuscode}"
 # Sempre deverá executar no terminal 'npx serverest' e manter o terminal isolado
 # Isto é: não fechar nem executar comandos no terminal rodando o server
 
-
 Importar JSON Estatico
     [Arguments]    ${nome_arquivo}
     ${arquivo}    Get File    ${EXECDIR}/support/fixtures/static/${nome_arquivo}
@@ -20,5 +20,4 @@ Importar JSON Estatico
     RETURN    ${data}
 
 Validar se Mensagem Contem "${palavra}"
-    Should Contain        ${response.json()["message"]}    ${palavra}
-    
+    Should Contain    ${response.json()["message"]}    ${palavra}

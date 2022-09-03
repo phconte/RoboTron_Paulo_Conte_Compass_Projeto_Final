@@ -3,6 +3,7 @@ Documentation       Arquivo de testes para o Endpoint /usuarios
 
 Library             RequestsLibrary
 Resource            ../keywords/usuarios_keywords.robot
+
 Test Setup          Criar Sessao
 
 
@@ -30,15 +31,11 @@ Cenário 07: GET Buscar Usuario por ID com sucesso 200
     GETid On Session /Usuarios
     Validar Status Code "200"
 
-#Alterar ${id} para rodar
-
 Cenário 08: GET Buscar Usuario por ID sem sucesso 400
     [Tags]    usersemid
-    Set Test Variable    ${id}     0uxuPY0cbmQhpEzA   
+    Set Test Variable    ${id}    0uxuPY0cbmQhpEzA
     GETid On Session /Usuarios
     Validar Status Code "400"
-
-#Alterar ${possui_carrinho} para false se quiser deletar
 
 Cenário 09: DELETE Usuario por ID
     [Tags]    deluser
@@ -46,29 +43,23 @@ Cenário 09: DELETE Usuario por ID
     POST On Session /Usuarios
     DELETE On Session /Usuarios
 
-#Setar ${id_alterar} existente e nome, email e password ${xxx_novo}
-
 Cenário 10: PUT Alterar Usuario com Sucesso 200
     [Tags]    putuser
     Criar Usuario Dinamico Valido
     POST On Session /Usuarios
-    PUT On Session /Usuarios
+    PUT On Session /Usuarios "${id}"
     Validar Status Code "200"
-
-#Alterar ${id_alterar} e ${email_novo} para inexistentes
 
 Cenário 11: PUT Cadastrar Usuario com Sucesso 201
     [Tags]    putusernovo
     Criar Usuario Dinamico Valido
-    POST On Session /Usuarios
-    PUT On Session /Usuarios
+    PUT On Session /Usuarios "123456"
     Validar Status Code "201"
-# seguir o anterior
 
 Cenário 12: PUT Cadastrar Usuario sem Sucesso 400
     [Tags]    putemailexist
-    Pegar Dados Usuario Estatico Valido "user_valido"    
-    PUT On Session /Usuarios
+    Pegar Dados Usuario Estatico Valido "user_valido"
+    PUT On Session /Usuarios "${id}"
     Validar Status Code "400"
 
 Cenário 39: POST Criar Usuario de Massa Dinamica 201

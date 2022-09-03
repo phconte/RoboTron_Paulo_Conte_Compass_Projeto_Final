@@ -3,7 +3,6 @@ Documentation       Keywords e Variaveis para ações do Endpoint de Usuarios
 
 Library             RequestsLibrary
 Resource            ../support/base.robot
-#Resource    ./login_keywords.robot
 
 
 *** Keywords ***
@@ -11,6 +10,10 @@ GET On Session /Usuarios
     ${response}    GET On Session    serverest    /usuarios
     Log To Console    Resposta: ${response.content}
     Set Global Variable    ${response}
+
+# Referência: usado ideia de lógica booleana para corrigir necessidade de cenário onde o
+# teste passa porém o status code é diferente do espetado, ideia da colega Manoella:
+# https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Final/blob/develop/keywords/usuarios_keywords.robot
 
 POST On Session /Usuarios
     ${response}    POST On Session
@@ -20,6 +23,10 @@ POST On Session /Usuarios
     ...    expected_status=any
     Log To Console    Response: ${response.content}
     Set Global Variable    ${response}
+    IF    "${response.status_code}" == "201"
+        ${id}    Set Variable    ${response.json()["_id"]}
+        Set Global Variable    ${id}
+    END
 
 GETid On Session /Usuarios
     ${response}    GET On Session    serverest    /usuarios/${id}    expected_status=any
@@ -34,13 +41,22 @@ DELETE On Session /Usuarios
     Log To Console    Resposta: ${response.content}
     Set Global Variable    ${response}
 
-PUT On Session /Usuarios
+# Referência: usado ideia de lógica booleana para corrigir necessidade de cenário onde o
+# teste passa porém o status code é diferente do espetado, ideia da colega Manoella:
+# https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Final/blob/develop/keywords/usuarios_keywords.robot
+
+PUT On Session /Usuarios "${id}"
     ${response}    PUT On Session
     ...    serverest
-    ...    /usuarios/${response.json()["_id"]}
+    ...    /usuarios/${id}
     ...    json=&{payload}
+    ...    expected_status=any
     Log To Console    Resposta: ${response.content}
     Set Global Variable    ${response}
+    IF    "${response.status_code}" == "201"
+        ${id}    Set Variable    ${response.json()["_id"]}
+        Set Global Variable    ${id}
+    END
 
 Criar e logar sem ADM
     &{cadastro}    Create Dictionary

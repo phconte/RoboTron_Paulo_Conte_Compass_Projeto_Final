@@ -19,12 +19,13 @@ Validar ter Logado
 Fazer Login e Armazenar Token
     Pegar usuario para Login "user_default"
     POST Endpoint /login
-    #Validar ter Logado
+    Validar ter Logado
     ${token_auth}    Set Variable    ${response.json()["authorization"]}
     Log to Console    Token Salvo:    ${token_auth}
     Set Global Variable    ${token_auth}
 
 Fazer Login sem adm
+    Pegar usuario para Login "user_sem_adm"
     POST Endpoint /login
     ${token_auth}    Set Variable    ${response.json()["authorization"]}
     Log to Console    Token Salvo:    ${token_auth}
@@ -35,3 +36,6 @@ Pegar usuario para Login "${usuario}"
     ${payload}               Set variable                       ${json["${usuario}"]}
     Set Global Variable      ${payload}                  
     
+Pegar Token Invalido
+    ${token_auth}             Set Variable        0000000000  
+    Set Global Variable       ${token_auth}

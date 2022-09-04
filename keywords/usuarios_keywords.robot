@@ -33,11 +33,12 @@ GETid On Session /Usuarios
     Log To Console    Resposta: ${response.content}
     Set Global Variable    ${response}
 
-DELETE On Session /Usuarios
+DELETE On Session /Usuarios "${id}"
     ${response}    DELETE On Session
     ...    serverest
-    ...    /usuarios/${response.json()["_id"]}
+    ...    /usuarios/${id}
     ...    json=&{payload}
+    ...    expected_status=any
     Log To Console    Resposta: ${response.content}
     Set Global Variable    ${response}
 

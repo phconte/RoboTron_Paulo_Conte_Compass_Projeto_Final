@@ -37,11 +37,17 @@ Cenário 08: GET Buscar Usuario por ID sem sucesso 400
     GETid On Session /Usuarios
     Validar Status Code "400"
 
-Cenário 09: DELETE Usuario por ID
+Cenário 09: DELETE Usuario por ID com sucesso 200
     [Tags]    deluser
     Criar Usuario Dinamico Valido
     POST On Session /Usuarios
-    DELETE On Session /Usuarios
+    DELETE On Session /Usuarios "${id}"
+    Validar Status Code "200"
+
+Cenário 41: DELETE Usuario por ID sem sucesso 400
+    [Tags]    deluser
+    DELETE On Session /Usuarios "oUb7aGkMtSEPf6BZ"
+    Validar Status Code "400"
 
 Cenário 10: PUT Alterar Usuario com Sucesso 200
     [Tags]    putuser

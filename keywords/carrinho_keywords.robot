@@ -1,6 +1,5 @@
 *** Settings ***
 Documentation       Keywords e Variaveis para ações do Endpoint de Carrinhos
-
 Library             RequestsLibrary
 Resource            ../support/base.robot
 
@@ -36,14 +35,14 @@ Criar Carrinho Estatico Valido
 
 Criar Um Carrinho e Armazenar ID
     Criar Carrinho Estatico Valido
-    Validar Ter Criado carrinho
+    #Validar Ter Criado carrinho
     ${id_carrinho}    Set Variable    ${response.json()["_id"]}
     Log To Console    id carrinho:    ${id_carrinho}
     Set Global Variable    ${id_carrinho}
 
 Criar Um Carrinho e Armazenar ID errado
     Criar Carrinho Estatico Valido
-    Validar Ter Criado carrinho
+    #Validar Ter Criado carrinho
     ${id_carrinho}    Set Variable    ${id_carrinho_errado}
     Log To Console    id carrinho:    ${id_carrinho}
     Set Global Variable    ${id_carrinho}
@@ -62,7 +61,6 @@ POST On Session /Carrinhos sem token
     ...    expected_status=any
     Log to Console    Response: ${response.content}
     Set Global Variable    ${response}
-
 Criar Carrinho Estatico Valido sem token
     ${json}    Importar JSON Estatico    carrinhos.json
     ${payload}    Set Variable    ${json}
@@ -82,6 +80,26 @@ DELETE Endpoint /carrinhos/concluir-compra
 
 DELETE Endpoint /carrinhos/cancelar-compra
     &{header}    Create Dictionary    Authorization=${token_auth}
+    ${response}    DELETE On Session
+    ...    serverest
+    ...    /carrinhos/cancelar-compra/
+    ...    headers=&{header}
+    ...    expected_status=any
+    Log To Console    Response: ${response.content}
+    Set Global Variable    ${response}
+
+DELETE Endpoint /carrinhos/concluir-compra sem token
+    &{header}    Create Dictionary    Authorization=
+    ${response}    DELETE On Session
+    ...    serverest
+    ...    /carrinhos/concluir-compra/
+    ...    headers=&{header}
+    ...    expected_status=any
+    Log To Console    Response: ${response.content}
+    Set Global Variable    ${response}
+
+DELETE Endpoint /carrinhos/cancelar-compra sem token
+    &{header}    Create Dictionary    Authorization=
     ${response}    DELETE On Session
     ...    serverest
     ...    /carrinhos/cancelar-compra/

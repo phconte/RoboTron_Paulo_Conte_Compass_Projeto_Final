@@ -59,7 +59,7 @@ Cenário 35: DELETE Carrinho por compra concluída 200
 Cenário 36: DELETE Carrinho por compra concluída 401
     [Tags]    delsemtoken
     Criar Carrinho Estatico Valido sem token
-    DELETE Endpoint /carrinhos/concluir-compra
+    DELETE Endpoint /carrinhos/concluir-compra sem token
     Validar Status Code "401"
 
 Cenário 37: DELETE Carrinho por compra cancelada 200
@@ -70,7 +70,7 @@ Cenário 37: DELETE Carrinho por compra cancelada 200
     Validar Status Code "200"
 
 Cenário 38: DELETE Carrinho por compra cancelada 401
-    [Tags]    delsemtoken
-    Criar Carrinho Estatico Valido
-    DELETE Endpoint /carrinhos/concluir-compra
+    [Tags]    delcarrinhosemtoken
+    Criar Carrinho Estatico Valido sem token
+    DELETE Endpoint /carrinhos/concluir-compra sem token
     Validar Status Code "401"

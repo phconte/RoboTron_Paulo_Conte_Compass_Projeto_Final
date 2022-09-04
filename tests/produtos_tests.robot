@@ -118,7 +118,7 @@ Cenário 40: POST Criar Produto de Massa Dinamica 201
     Validar Status Code "201"
     DELETE Endpoint /produtos
 
-Cenário limpar produtos
-    Fazer Login e Armazenar Token
-    DELETAR Escolhido "uAxRZZtxMsxRGlsp"
-    Validar Status Code "200"
+# Cenário limpar produtos
+#     Fazer Login e Armazenar Token
+#     DELETAR Escolhido "uAxRZZtxMsxRGlsp"
+#     Validar Status Code "200"

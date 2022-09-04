@@ -71,3 +71,11 @@ Criar Usuario Estatico Invalido
     ${payload}    Set variable    ${json["user_invalido"]}
     Set Global Variable    ${payload}
     Log To Console    Response: ${payload}
+
+# DELETAR Escolhido "${id}"
+#     &{header}    Create Dictionary    Authorization=${token_auth}
+#     ${response}    DELETE On Session
+#     ...    serverest
+#     ...    /usuarios/${id}
+#     ...    headers=${header}
+#     ...    expected_status=any

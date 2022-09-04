@@ -86,11 +86,11 @@ Pegar Dados Produto Estatico Valido "${produto}"
     Set Global Variable    ${payload}
     Log To Console    Response: ${payload}
 
-DELETAR Escolhido "${id_produto}"
-    &{header}    Create Dictionary    Authorization=${token_auth}
-    ${response}    DELETE On Session
-    ...    serverest
-    ...    /produtos/${id_produto}
-    ...    headers=${header}
-    ...    expected_status=any
+# DELETAR Escolhido "${id_produto}"
+#     &{header}    Create Dictionary    Authorization=${token_auth}
+#     ${response}    DELETE On Session
+#     ...    serverest
+#     ...    /produtos/${id_produto}
+#     ...    headers=${header}
+#     ...    expected_status=any
     

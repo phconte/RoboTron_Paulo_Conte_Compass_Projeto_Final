@@ -4,19 +4,20 @@
 
 ## PROJETO FINAL
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://github.com/phconte/RoboTron_Paulo_Conte_Compass_Projeto_Final/blob/main/LICENCE) 
-![Python](https://img.shields.io/pypi/pyversions/p)
 ![Commit](https://img.shields.io/github/last-commit/phconte/RoboTron_Paulo_Conte_Compass_Projeto_Final)
 [![Badge ServeRest](https://img.shields.io/badge/API-ServeRest-green)](https://github.com/ServeRest/ServeRest/)
 
 
 # Sobre o projeto
-Este repositório é utilizado para commits do Projeto Final (Sprints 05 e 06) utilizando o Robot Framework
+Este projeto é para automatação de testes da API [ServeRest](https://github.com/ServeRest/ServeRest/) utilizando o Robot Framework durante as Sprints 05 e 06 do Programa de Bolsas da [Compass UOL](https://compass.uol).
 
 
 # Sumário
 - [Infra]()
-    - [Keywords]()
-    - [Tests Case]()
+    - [Keywords](https://github.com/phconte/RoboTron_Paulo_Conte_Compass_Projeto_Final/tree/main/keywords)
+    - [Libraries](https://github.com/phconte/RoboTron_Paulo_Conte_Compass_Projeto_Final/tree/main/libraries)
+    - [Suporte](https://github.com/phconte/RoboTron_Paulo_Conte_Compass_Projeto_Final/tree/main/suppport)
+    - [Tests Case](https://github.com/phconte/RoboTron_Paulo_Conte_Compass_Projeto_Final/tree/main/tests)
 - [Mapa Mental das Rotas]()
     - [Mapa PNG](Imagens/ServeRest-Map.png)
     - [Mapa .xmind](Imagens/ServeRest.xmind)
@@ -24,6 +25,7 @@ Este repositório é utilizado para commits do Projeto Final (Sprints 05 e 06) u
 - [Execução do Projeto](#Execução%20do%20Projeto)
 - [Autor](#Autor)
 - [Agradecimentos](#Agradecimentos)
+- [Referências](#Referências)
 
 
 # Pré-requisitos
@@ -42,6 +44,7 @@ pip install -U robotframework \
 robotframework-faker \
 robotframework-browser \
 robotframework-requests \
+pandas \
 ```
 
 # Execução do Projeto
@@ -68,20 +71,6 @@ Execute o seguinte comando no terminal:
 npx serverest@latest
 ```
 
-### Localmente com docker 🐳
-
-Execute o seguinte comando no terminal:
-
-```sh
-
-```
-
-Para visualizar as configurações que são possíveis de serem feitas execute o comando:
-
-```sh
-
-```
-
 ## Executando os testes
 
 Para executar teste abrangendo todas as suites utilize o comando:
@@ -102,9 +91,41 @@ Para executar teste somente de uma tag utilize o comando:
 robot -d ./reports -i TAG_DESEJADA ./tests/SUITE_DESEJADA.robot
 ```
 
+## Executando Libraries personalizadas
+
+Para criptograr uma string com sha256, adicione a keyword no Test Case desejado, observando a ${variavel} desejada e rode os testes:
+```sh
+Converter string "${response.content}" para sha256
+```
+
+Para criptograr um dicionario com sha256, adicione a keyword no Test Case desejado, observando a ${variavel} desejada e rode os testes:
+```sh
+Converter dict "${response.content}" para sha256
+```
+
+Para gerar um JSON de uma response, adicione a keyword no Test Case desejado, observando a ${variavel} desejada e rode os testes:
+```sh
+Gerar Json "${response.content}"
+```
+
+Para gerar um CSV de uma response, adicione a keyword no Test Case desejado, observando a ${variavel} desejada e rode os testes:
+```sh
+Gerar CSV "${response.content}"
+```
 
 ## Autor
 
 [Paulo Henrique Conte](https://www.linkedin.com/in/paulohconte)
 
 ## Agradecimentos
+
+Agradeço a Compass UOL pela trilha e ensinamentos durante todo o programa e aos evangelistas [Larissa Campos](https://www.linkedin.com/in/larissa-campos-68443731/), Gabriela A. dos Santos, [Matheus Locatelli](https://www.linkedin.com/in/matheuslocatelli/) e [Demétrio Webber](https://www.linkedin.com/in/demetriowebberqa/).
+
+Agradecimento especial aos colegas [Laura Gehrke](https://github.com/lauraghrk), [Manoella Souza](https://github.com/manoellasouza), [Mari de Oliveira](https://github.com/OliveiraMariC) e [Pedro Favoreto Gaya](https://github.com/PFrek).
+
+
+## Referências
+
+- Trilha RoboTron da Compass UOL
+- Cursos Robot básico e avançado da [Mayara Fernandes](https://www.udemy.com/user/mayara-ribeiro-fernandes/) 
+

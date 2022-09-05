@@ -15,7 +15,7 @@ Validar Status Code "${statuscode}"
 
 Importar JSON Estatico
     [Arguments]    ${nome_arquivo}
-    ${arquivo}    Get File    ${EXECDIR}/support/fixtures/static/${nome_arquivo}
+    ${arquivo}    Get File    ${EXEC_DIR}/support/fixtures/static/${nome_arquivo}
     ${data}    Evaluate    json.loads('''${arquivo}''')    json
     RETURN    ${data}
 

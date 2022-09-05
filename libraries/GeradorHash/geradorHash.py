@@ -20,3 +20,8 @@ def gerar_hash_dict(conteudo):
     print("Hash gerado: {}".format(hash_conteudo))
 
     return hash_conteudo
+
+# Referência:
+# Curso Automação de Testes com Robot Framework - Avançado da Mayara "May" Fernandes
+# https://www.udemy.com/course/automacao-de-testes-com-robot-framework-avancado
+

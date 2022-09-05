@@ -12,7 +12,9 @@ Cenário 04: GET Listar usuários cadastrados com Sucesso 200
     [Tags]    users
     GET On Session /Usuarios
     Validar Status Code "200"
-    Converter string "${response.content}" para sha256
+    Gerar CSV "${response.content}"
+    #Gerar Json "${response.content}"
+    #Converter string "${response.content}" para sha256
 
 Cenário 05: POST Cadastrar Usuario com sucesso 201
     [Tags]    adduser
@@ -75,8 +77,3 @@ Cenário 39: POST Criar Usuario de Massa Dinamica 201
     Criar Usuario Dinamico Valido
     POST On Session /Usuarios
     Validar Status Code "201"
-
-# Cenário limpar users
-#     Fazer Login e Armazenar Token
-#     DELETAR Escolhido "ykavVFBMcvHhTlLM"
-#     Validar Status Code "200"

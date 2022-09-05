@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation       Keywords e variáveis para Geração de dados dinamicos
 
-Library             FakerLibrary        locale=pt_br
+Library             FakerLibrary    locale=pt_br
 Library             OperatingSystem
 Resource            ../variables/serverest_variables.robot
 
@@ -24,7 +24,7 @@ Criar Produto Dinamico Valido
     ${descricao}    FakerLibrary.Color Name
     ${quantidade}    FakerLibrary.Building Number
     ${payload}    Create Dictionary
-    ...    nome=${nome} 
+    ...    nome=${nome}
     ...    preco=${preco}
     ...    descricao=${descricao}
     ...    quantidade=${quantidade}

@@ -22,7 +22,7 @@ Este projeto é para automatação de testes da API [ServeRest](https://github.c
     - [Mapa PNG](Imagens/ServeRest-Map.png)
     - [Mapa .xmind](Imagens/ServeRest.xmind)
 - [Pré-requisitos](#pré-requisitos)
-- [Execução do Projeto](#Execução%20do%20Projeto)
+- [Execução do Projeto](#Execução-do-Projeto)
 - [Autor](#Autor)
 - [Agradecimentos](#Agradecimentos)
 - [Referências](#Referências)

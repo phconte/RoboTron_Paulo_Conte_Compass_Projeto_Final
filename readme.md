@@ -135,9 +135,9 @@ Gerar CSV "${response.content}"
 
 ## Agradecimentos
 
-Agradeço a Compass UOL pela trilha e ensinamentos durante todo o programa e aos evangelistas [Larissa Campos](https://www.linkedin.com/in/larissa-campos-68443731/), Gabriela A. dos Santos, [Matheus Locatelli](https://www.linkedin.com/in/matheuslocatelli/) e [Demétrio Webber](https://www.linkedin.com/in/demetriowebberqa/).
+Agradeço a Compass UOL pela trilha, ensinamentos durante todo o programa e aos evangelistas [Larissa Campos](https://www.linkedin.com/in/larissa-campos-68443731/), Gabriela A. dos Santos, [Matheus Locatelli](https://www.linkedin.com/in/matheuslocatelli/) e [Demétrio Webber](https://www.linkedin.com/in/demetriowebberqa/).
 
-Agradecimento especial aos colegas [Laura Gehrke](https://github.com/lauraghrk), [Manoella Souza](https://github.com/manoellasouza), [Mari de Oliveira](https://github.com/OliveiraMariC) e [Pedro Favoreto Gaya](https://github.com/PFrek).
+Agradecimento especial aos colegas de squad [Laura Gehrke](https://github.com/lauraghrk), [Manoella Souza](https://github.com/manoellasouza), [Mari de Oliveira](https://github.com/OliveiraMariC) e [Pedro Favoreto Gaya](https://github.com/PFrek).
 
 
 ## Referências

@@ -67,7 +67,19 @@ Acesse **<https://serverest.dev>** para visualizar a documentação e as rotas d
 
 O ServeRest online possui monitoramento constante do status e tempo de atividade para garantir que esteja sempre disponível.
 
+Nesta opção a variável [${BASE_URI}](https://github.com/phconte/RoboTron_Paulo_Conte_Compass_Projeto_Final/blob/main/support/variables/serverest_variables.robot) deverá ser:
+
+```sh
+${BASE_URI}     https://serverest.dev/
+```
+
 ### Localmente com NPM
+
+Nesta opção a variável [${BASE_URI}](https://github.com/phconte/RoboTron_Paulo_Conte_Compass_Projeto_Final/blob/main/support/variables/serverest_variables.robot) deverá ser:
+
+```sh
+${BASE_URI}     http://localhost:3000
+```
 
 Execute o seguinte comando no terminal:
 
@@ -83,13 +95,13 @@ Para executar teste abrangendo todas as suites utilize o comando:
 robot -d ./reports ./tests
 ```
 
-Para executar teste somente de uma suite utilize o comando:
+Para executar teste somente de uma suite utilize o comando, escolhendo o nome do arquivo da suite desejada:
 
 ```sh
 robot -d ./reports ./tests/SUITE_DESEJADA.robot
 ```
 
-Para executar teste somente de uma tag utilize o comando:
+Para executar teste somente de uma tag utilize o comando, escolhendo o nome do arquivo da tag desejada:
 
 ```sh
 robot -d ./reports -i TAG_DESEJADA ./tests/SUITE_DESEJADA.robot

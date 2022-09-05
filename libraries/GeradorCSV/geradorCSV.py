@@ -5,7 +5,7 @@ import json
 def gerar_csv(conteudo):
 
     data = json.loads(conteudo.decode('utf-8'))
-    df = pd.json_normalize(data['Results'])
-    df.to_csv("arquivo.csv")
+    df = pd.read_json(r'arquivo.json')
+    df.to_csv(r'arquivo.csv', index=None)
 
     return data

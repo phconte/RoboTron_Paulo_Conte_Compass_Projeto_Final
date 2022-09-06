@@ -3,4 +3,9 @@ arquivo.json
 deletar_cadastros.robot
 log.html
 output.xml
+<<<<<<< HEAD
 report.html
+/results
+=======
+report.html
+>>>>>>> 1b0e5b8fbb0746be924baa0dd62912598f252119

@@ -1,0 +1,56 @@
+{
+    "user_default": {
+        "nome": "Fulano da Silva",
+        "email": "beltrano@qa.com.br",
+        "password": "teste",
+        "administrador": "true"
+    },
+    "user_valido": {
+        "nome": "Tony B.",
+        "email": "tony8@qa.com.br",
+        "password": "123",
+        "administrador": "true"
+    },
+    "user_invalido": {
+        "nome": "Invalido da Silva",
+        "email": "invalido@qa.com",
+        "password": "123",
+        "administrador": "true"
+    },
+    "user_sem_senha": {
+        "nome": "Paulie Guatieri",
+        "email": "paulie@qa.com.br",
+        "password": "",
+        "administrador": "true"
+    },
+    "user_sem_email": {
+        "nome": "Walter White",
+        "email": "",
+        "password": "teste",
+        "administrador": "true"
+    },
+    "user_sem_adm": {
+        "nome": "Saul Goodman",
+        "email": "bcs@qa.com.br",
+        "password": "teste",
+        "administrador": "false"
+    },
+    "user_novo": {
+        "nome": "Tony Soprano",
+        "email": "tony7@qa.com.br",
+        "password": "123",
+        "administrador": "true"
+    },
+    "user_vazio": {
+        "nome": "",
+        "email": "",
+        "password": "",
+        "administrador": "true"
+    },
+    "user_adm_error": {
+        "nome": "teste",
+        "email": "teste@teste.com.br",
+        "password": "teste",
+        "administrador": "1111"
+    }
+}

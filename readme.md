@@ -89,6 +89,8 @@ npx serverest@latest
 
 ## Executando os testes
 
+É importante alterar o email do usuario ["user_valido"](https://github.com/phconte/RoboTron_Paulo_Conte_Compass_Projeto_Final/blob/main/support/fixtures/static/usuarios.json) para um email novo antes de executar os testes de usuario ou o Cenário 04 irá falhar.
+
 Para executar teste abrangendo todas as suites utilize o comando:
 
 ```sh

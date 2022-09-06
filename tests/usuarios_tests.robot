@@ -82,3 +82,15 @@ Cenário 39: POST Criar Usuario de Massa Dinamica 201
     POST On Session /Usuarios
     Validar Status Code "201"
     DELETE On Session /Usuarios "${id}"
+
+Cenário 41: POST Cadastrar Usuario sem dados 400
+    [Tags]    postsemdados
+    Pegar Dados Usuario Estatico Valido "user_vazio"
+    POST On Session /Usuarios
+    Validar Status Code "400"
+
+Cenário 42: POST Cadastrar Usuario sem não booleano 400
+    [Tags]    postnaobooleano
+    Pegar Dados Usuario Estatico Valido "user_adm_error"
+    POST On Session /Usuarios
+    Validar Status Code "400"

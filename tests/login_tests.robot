@@ -27,3 +27,15 @@ Cenário 03: POST Fazer login com dados Inválidos 400
     Pegar usuario para Login "user_sem_email"
     POST Endpoint /Login
     Validar Status Code "400"
+
+Cenário 43: POST Fazer login com dados em branco 400
+    [Tags]    loginv
+    Pegar usuario para Login "user_em_branco"
+    POST Endpoint /Login
+    Validar Status Code "400"
+
+Cenário 44: POST Fazer login com email invalido 400
+    [Tags]    loginv
+    Pegar usuario para Login "user_email_invalido"
+    POST Endpoint /Login
+    Validar Status Code "400"

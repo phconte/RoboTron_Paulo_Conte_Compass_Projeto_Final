@@ -26,5 +26,13 @@
     "user_novo": {
         "email": "tony7@qa.com.br",
         "password": "123"
-    }
+    },
+    "user_em_branco": {
+        "email": "",
+        "password": ""
+    },
+    "user_email_invalido": {
+        "email": "0000000",
+        "password": "teste"
+    }    
 }

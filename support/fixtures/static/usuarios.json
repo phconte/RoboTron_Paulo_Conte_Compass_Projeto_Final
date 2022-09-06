@@ -40,5 +40,17 @@
         "email": "tony7@qa.com.br",
         "password": "123",
         "administrador": "true"
+    },
+    "user_vazio": {
+        "nome": "",
+        "email": "",
+        "password": "",
+        "administrador": "true"
+    },
+    "user_adm_error": {
+        "nome": "teste",
+        "email": "teste@teste.com.br",
+        "password": "teste",
+        "administrador": "1111"
     }
 }

@@ -16,7 +16,7 @@ Este projeto é para automatação de testes da API [ServeRest](https://github.c
 - [Infra]()
     - [Keywords](https://github.com/phconte/RoboTron_Paulo_Conte_Compass_Projeto_Final/tree/main/keywords)
     - [Libraries](https://github.com/phconte/RoboTron_Paulo_Conte_Compass_Projeto_Final/tree/main/libraries)
-    - [Suporte](https://github.com/phconte/RoboTron_Paulo_Conte_Compass_Projeto_Final/tree/main/suppport)
+    - [Suporte](https://github.com/phconte/RoboTron_Paulo_Conte_Compass_Projeto_Final/tree/main/support)
     - [Tests Case](https://github.com/phconte/RoboTron_Paulo_Conte_Compass_Projeto_Final/tree/main/tests)
 - [Mapa Mental das Rotas]()
     - [Mapa PNG](Imagens/ServeRest-Map.png)
@@ -80,6 +80,9 @@ Nesta opção a variável [${BASE_URI}](https://github.com/phconte/RoboTron_Paul
 ```sh
 ${BASE_URI}     http://localhost:3000
 ```
+
+Também deverá ter instalado o [node.js](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions) 
+
 
 Execute o seguinte comando no terminal:
 

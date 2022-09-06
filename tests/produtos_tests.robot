@@ -152,31 +152,3 @@ Cenário 47: PUT Alterar Produto em branco 400
     Pegar Dados Produto Estatico Valido "produto_sem_nada"
     PUT On Session /Produtos "${id_produto}"
     Validar Status Code "400"
-
-Cenário limpar users
-    Fazer Login e Armazenar Token
-    DELETAR Escolhido "jo1mGhzcIp14ACa1"
-    Validar Status Code "200"
-
-Cenário limpar produtos
-    Fazer Login e Armazenar Token
-    DELETAR produto "wFqosdTUF8GN1t8L"
-    Validar Status Code "200"
-
-
-*** Keywords ***
-DELETAR Escolhido "${id}"
-    &{header}    Create Dictionary    Authorization=${token_auth}
-    ${response}    DELETE On Session
-    ...    serverest
-    ...    /usuarios/${id}
-    ...    headers=${header}
-    ...    expected_status=any
-
-DELETAR produto "${id_produto}"
-    &{header}    Create Dictionary    Authorization=${token_auth}
-    ${response}    DELETE On Session
-    ...    serverest
-    ...    /produtos/${id_produto}
-    ...    headers=${header}
-    ...    expected_status=any

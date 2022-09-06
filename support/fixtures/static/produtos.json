@@ -34,5 +34,17 @@
         "preco": 470,
         "descricao": "Mouse",
         "quantidade": ""
-    } 
+    },
+    "produto_sem_nada": {
+        "nome": "",
+        "preco": "",
+        "descricao": "",
+        "quantidade": ""
+    },
+    "produto_qtd_negativo": {
+        "nome": "Logitech MX Vertical",
+        "preco": "500",
+        "descricao": "nada",
+        "quantidade": "-10"
+    }
 }

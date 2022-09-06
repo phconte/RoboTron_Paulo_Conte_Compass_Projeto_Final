@@ -5,7 +5,6 @@ Library             RequestsLibrary
 Resource            ../support/base.robot
 
 
-
 *** Keywords ***
 POST Endpoint /login
     ${response}    POST On Session    serverest    /login    json=&{payload}    expected_status=any
@@ -32,10 +31,10 @@ Fazer Login sem adm
     Set Global Variable    ${token_auth}
 
 Pegar usuario para Login "${usuario}"
-    ${json}                  Importar JSON Estatico            login.json  
-    ${payload}               Set variable                       ${json["${usuario}"]}
-    Set Global Variable      ${payload}                  
-    
+    ${json}    Importar JSON Estatico    login.json
+    ${payload}    Set variable    ${json["${usuario}"]}
+    Set Global Variable    ${payload}
+
 Pegar Token Invalido
-    ${token_auth}             Set Variable        0000000000  
-    Set Global Variable       ${token_auth}
+    ${token_auth}    Set Variable    0000000000
+    Set Global Variable    ${token_auth}

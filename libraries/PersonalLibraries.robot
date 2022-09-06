@@ -10,14 +10,15 @@ Library             ../libraries/GeradorJSON/geradorJSON.py
 *** Keywords ***
 Converter string "${conteudo}" para sha256
     ${Conteudo_Log}    Gerar Hash Str    ${conteudo}
-    Log    ${Conteudo_Log}
+    Log to Console    ${Conteudo_Log}
 
 Converter dict "${conteudo}" para sha256
     ${Conteudo_Log}    Gerar Hash Dict    ${conteudo}
-    Log    ${Conteudo_Log}
+    Log to Console     ${Conteudo_Log}
 
 Gerar Json "${conteudo}"
     ${Conteudo_Log}    Gerar Json    ${conteudo}
+
 
 Gerar CSV "${conteudo}"
     ${Conteudo_Log}    Gerar CSV    ${conteudo}

@@ -117,5 +117,3 @@ Cenário 40: POST Criar Produto de Massa Dinamica 201
     Cadastrar Produto Dinamico Valido
     Validar Status Code "201"
     DELETE Endpoint /produtos
-
-

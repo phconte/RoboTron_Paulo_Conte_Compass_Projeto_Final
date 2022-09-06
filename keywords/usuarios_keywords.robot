@@ -29,7 +29,7 @@ POST On Session /Usuarios
     END
 
 GETid On Session /Usuarios
-    ${response}    GET On Session    serverest    /usuarios/${id}    expected_status=any
+    ${response}    GET On Session    serverest    /usuarios/${id_user}    expected_status=any
     Log To Console    Resposta: ${response.content}
     Set Global Variable    ${response}
 
@@ -71,3 +71,4 @@ Criar Usuario Estatico Invalido
     ${payload}    Set variable    ${json["user_invalido"]}
     Set Global Variable    ${payload}
     Log To Console    Response: ${payload}
+

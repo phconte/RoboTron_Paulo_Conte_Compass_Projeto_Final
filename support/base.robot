@@ -17,6 +17,7 @@ Resource            ../keywords/usuarios_keywords.robot
 Resource            ../libraries/PersonalLibraries.robot
 
 
+
 *** Keywords ***
 Criar Sessao
     Create Session    serverest    ${BASE_URI}

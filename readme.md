@@ -9,7 +9,7 @@
 
 
 # Sobre o projeto
-Este projeto é para automatação de testes da API [ServeRest](https://github.com/ServeRest/ServeRest/) utilizando o Robot Framework durante as Sprints 05 e 06 do Programa de Bolsas da [Compass UOL](https://compass.uol).
+Este projeto é para automação de testes da API [ServeRest](https://github.com/ServeRest/ServeRest/) utilizando o Robot Framework durante as Sprints 05 e 06 do Programa de Bolsas da [Compass UOL](https://compass.uol).
 
 
 # Sumário

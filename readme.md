@@ -1,15 +1,13 @@
-# RoboTron Compass UOL - Programa de Bolsas
-![Compasso](https://github.com/phconte/RoboTron_Paulo_Conte_Compass_Projeto_Final/blob/main/Imagens/compasso.png)
+
 ![Robotron](https://github.com/phconte/RoboTron_Paulo_Conte_Compass_Projeto_Final/blob/main/Imagens/robotron.png)
 
-## PROJETO FINAL
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://github.com/phconte/RoboTron_Paulo_Conte_Compass_Projeto_Final/blob/main/LICENCE) 
 ![Commit](https://img.shields.io/github/last-commit/phconte/RoboTron_Paulo_Conte_Compass_Projeto_Final)
 [![Badge ServeRest](https://img.shields.io/badge/API-ServeRest-green)](https://github.com/ServeRest/ServeRest/)
 
 
 # Sobre o projeto
-Este projeto é para automação de testes da API [ServeRest](https://github.com/ServeRest/ServeRest/) utilizando o Robot Framework durante as Sprints 05 e 06 do Programa de Bolsas da [Compass UOL](https://compass.uol).
+Este projeto é para automação de testes da API [ServeRest](https://github.com/ServeRest/ServeRest/) utilizando Robot Framework.
 
 
 # Sumário
